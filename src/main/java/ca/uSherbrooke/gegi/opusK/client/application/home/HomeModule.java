@@ -14,3 +14,5 @@ public class HomeModule extends AbstractPresenterModule {
                 HomePagePresenter.MyProxy.class);
     }
 }
+
+//commentaire de test
