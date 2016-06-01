@@ -3,10 +3,10 @@
  * Tous droits réservés / All rights reserved.
  */
 
-package ca.uSherbrooke.gegi.opusK.client.application.home.sideMenu;
+package ca.uSherbrooke.gegi.opusK.client.application.home;
 
 import com.gwtplatform.mvp.client.UiHandlers;
 
-public interface SideMenuUiHandlers extends UiHandlers {
-	public void refreshList();
+
+public interface HomePageUiHandlers extends UiHandlers {
 }

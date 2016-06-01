@@ -5,26 +5,24 @@
 
 package ca.uSherbrooke.gegi.opusK.client.application.home;
 
-import javax.inject.Inject;
-
-import ca.uSherbrooke.gegi.commons.core.client.presenter.application.ApplicationPresenter;
-import ca.uSherbrooke.gegi.commons.core.client.accessRestriction.AuthenticationGatekeeper;
-import ca.uSherbrooke.gegi.opusK.client.application.home.sideMenu.SideMenuPresenter;
 import ca.uSherbrooke.gegi.opusK.client.place.NameTokens;
-
 import com.google.web.bindery.event.shared.EventBus;
+import com.gwtplatform.mvp.client.HasUiHandlers;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
-import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
+import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
-public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomePagePresenter.MyProxy> {
+import javax.inject.Inject;
 
-    @Inject SideMenuPresenter sideMenuPresenter;
+public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomePagePresenter.MyProxy> implements HomePageUiHandlers {
 
-	public interface MyView extends View {
+    public static final NestedSlot SLOT_MAIN_CONTENT = new NestedSlot();
+
+    public interface MyView extends View, HasUiHandlers<HomePageUiHandlers> {
+
     }
 
     @ProxyStandard
@@ -34,15 +32,18 @@ public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomeP
     }
 
     @Inject
-    public HomePagePresenter(EventBus eventBus, MyView view, MyProxy proxy) {
-        super(eventBus, view, proxy, ApplicationPresenter.SLOT_CONTENT);
+    public HomePagePresenter(EventBus eventBus, MyView view, MyProxy proxy ) {
+        super(eventBus, view, proxy, RevealType.Root);
+
+        getView().setUiHandlers(this);
+
     }
 
     @Override
     protected void onReset() {
         super.onReset();
 
-        sideMenuPresenter.getView().addToApplicationPresenter();
-        sideMenuPresenter.refreshList();
     }
+
+
 }
