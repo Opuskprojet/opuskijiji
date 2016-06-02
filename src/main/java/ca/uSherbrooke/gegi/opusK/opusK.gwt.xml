@@ -17,6 +17,7 @@
     <set-property name="gwt.logging.enabled" value="TRUE"/>
 
 
+
     <!-- Default css -->
     <inherits name='com.google.gwt.user.theme.standard.Standard' />
     <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
