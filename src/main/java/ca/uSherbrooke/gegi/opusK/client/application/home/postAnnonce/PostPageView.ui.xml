@@ -10,7 +10,7 @@
 
                 <b:FormGroup>
                     <b:FormLabel for="formType" addStyleNames="col-lg-2">Type d'annonce</b:FormLabel>
-                    <g:FlowPanel addStyleNames="col-lg-10">
+                    <g:FlowPanel addStyleNames="col-lg-5">
                         <b:ListBox b:id="formType">
                             <g:item>Vente</g:item>
                             <g:item>Don</g:item>
@@ -21,7 +21,7 @@
 
                 <b:FormGroup>
                     <b:FormLabel for="formCategorie" addStyleNames="col-lg-2">Catégorie</b:FormLabel>
-                    <g:FlowPanel addStyleNames="col-lg-10">
+                    <g:FlowPanel addStyleNames="col-lg-5">
                         <b:ListBox b:id="formCategorie">
                             <g:item>Multimédia</g:item>
                             <g:item>Maison</g:item>
@@ -32,26 +32,30 @@
 
                 <b:FormGroup>
                     <b:FormLabel for="formName" addStyleNames="col-lg-2">Titre de l'annonce</b:FormLabel>
-                    <g:FlowPanel addStyleNames="col-lg-10">
+                    <g:FlowPanel addStyleNames="col-lg-5">
                         <b:TextBox placeholder="Clair et Concis" b:id="formName"/>
                     </g:FlowPanel>
                 </b:FormGroup>
 
                 <b:FormGroup>
                     <b:FormLabel for="formText" addStyleNames="col-lg-2">Description</b:FormLabel>
-                    <g:FlowPanel addStyleNames="col-lg-10">
+                    <g:FlowPanel addStyleNames="col-lg-5">
                     <b:TextArea/>
                     </g:FlowPanel>
 
                 </b:FormGroup>
 
                 <b:FormGroup>
-                    <g:FlowPanel addStyleNames="col-lg-offset-2 col-lg-10">
+                    <g:FlowPanel addStyleNames="col-lg-offset-4 col-lg-7">
                         <b:Button>Envoyer</b:Button>
                     </g:FlowPanel>
                 </b:FormGroup>
             </b:FieldSet>
         </b:Form>
-    </g:HTMLPanel>
+
+
+
+
+        </g:HTMLPanel>
 
 </ui:UiBinder>
