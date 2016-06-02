@@ -1,4 +1,4 @@
-package ca.uSherbrooke.gegi.opusK.client.application.home.postAnnonce;
+package ca.uSherbrooke.gegi.opusK.client.application.home.produit;
 
 import ca.uSherbrooke.gegi.opusK.client.application.home.HomePagePresenter;
 import ca.uSherbrooke.gegi.opusK.client.place.NameTokens;
@@ -8,22 +8,22 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
-import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
+import com.gwtplatform.mvp.client.proxy.Proxy;
 
 
-public class PostPagePresenter extends Presenter<PostPagePresenter.MyView, PostPagePresenter.MyProxy> {
+public class ProductPagePresenter extends Presenter<ProductPagePresenter.MyView, ProductPagePresenter.MyProxy> {
     interface MyView extends View {
     }
 
 
     @ProxyStandard
-    @NameToken(NameTokens.post)
-    interface MyProxy extends ProxyPlace<PostPagePresenter> {
+    @NameToken(NameTokens.product)
+    interface MyProxy extends Proxy<ProductPagePresenter> {
     }
 
-
     @Inject
-    PostPagePresenter(
+    ProductPagePresenter(
             EventBus eventBus,
             MyView view,
             MyProxy proxy) {

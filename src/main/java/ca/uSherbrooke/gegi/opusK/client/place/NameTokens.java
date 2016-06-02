@@ -10,6 +10,7 @@ public class NameTokens {
     public static final String chat = "/chat";
     public static final String post = "/post";
     public static final String consult = "/consult";
+    public static final String product = "/product";
 
     public static String getHome() {
         return home;
@@ -22,6 +23,9 @@ public class NameTokens {
     }
     public static String getPost() {
         return post;
+    }
+    public static String getProduct() {
+        return product;
     }
 
 
