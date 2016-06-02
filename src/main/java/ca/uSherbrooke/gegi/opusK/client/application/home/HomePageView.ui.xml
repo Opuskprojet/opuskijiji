@@ -9,9 +9,6 @@
              xmlns:npui="urn:import:ca.uSherbrooke.gegi.opusK.client.application.home.ui">
 
     <g:HTMLPanel>
-
-
-    	<b:PageHeader text="OPUS KIJIJI" subText="Opus" />
         <g:HTMLPanel>
             <div>
                 <npui:MainMenu/>

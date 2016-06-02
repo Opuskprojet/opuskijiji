@@ -2,11 +2,7 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui">
     <g:HTMLPanel>
-        <header>
-            <div>
-                <h2>Poster une annonce :</h2>
-            </div>
-        </header>
+
 
     </g:HTMLPanel>
 

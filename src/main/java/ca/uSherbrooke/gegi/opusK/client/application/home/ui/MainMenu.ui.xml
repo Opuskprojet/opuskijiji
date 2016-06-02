@@ -4,8 +4,15 @@
 
     <ui:with type="ca.uSherbrooke.gegi.opusK.client.place.NameTokens" field="nameTokens"></ui:with>
 
+
     <g:HTMLPanel tag="nav">
-        <ul>
+
+        <!-- https://www.gel.usherbrooke.ca/opus/opus/images/menu_background.png -->
+        <div class="main-menu" style="background-image: url('http://puu.sh/p86TW/c62d596e9d.png');">
+            <h1 style="color:white; font-family:verdana; text-align:center;font-size:300%"> Opus Kijiji</h1>
+        </div>
+
+        <ul class="nav nav-tabs">
 
             <li>
                 <a href="#{nameTokens.getConsult}">Consulter les annonces</a>
