@@ -10,6 +10,7 @@ import ca.uSherbrooke.gegi.opusK.client.application.home.HomeModule;
 import ca.uSherbrooke.gegi.opusK.client.application.home.chat.ChatPageModule;
 import ca.uSherbrooke.gegi.opusK.client.application.home.consultAnnonce.ConsultPageModule;
 import ca.uSherbrooke.gegi.opusK.client.application.home.postAnnonce.PostPageModule;
+import ca.uSherbrooke.gegi.opusK.client.application.home.produit.ProductPageModule;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
 public class OpusKModule extends AbstractPresenterModule {
@@ -19,5 +20,6 @@ public class OpusKModule extends AbstractPresenterModule {
         install(new PostPageModule());
         install(new ChatPageModule());
         install(new ConsultPageModule());
+        install(new ProductPageModule());
     }
 }
