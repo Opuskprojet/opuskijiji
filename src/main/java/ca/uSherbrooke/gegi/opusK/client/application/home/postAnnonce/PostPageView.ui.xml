@@ -3,13 +3,27 @@
              xmlns:b="urn:import:org.gwtbootstrap3.client.ui"
              xmlns:g="urn:import:com.google.gwt.user.client.ui">
     <g:HTMLPanel>
+        <style>
+            .bloc{
+            margin: auto;
+            margin-top:50px;
+            }
+            .header{
+            margin-top: 40px;
+            margin-bottom: 50px;
+            }
+        </style>
+        <div class="header">
+            <b:Heading size="H1" text="Déposer une annonce" addStyleNames="col-lg-offset-5"/>
+        </div>
 
+        <div class="bloc">
 
-        <b:Form type="HORIZONTAL">
+            <b:Form type="HORIZONTAL">
             <b:FieldSet>
 
                 <b:FormGroup>
-                    <b:FormLabel for="formType" addStyleNames="col-lg-2">Type d'annonce</b:FormLabel>
+                    <b:FormLabel for="formType" addStyleNames="col-lg-4">Type d'annonce</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-5">
                         <b:ListBox b:id="formType">
                             <g:item>Vente</g:item>
@@ -20,7 +34,7 @@
                 </b:FormGroup>
 
                 <b:FormGroup>
-                    <b:FormLabel for="formCategorie" addStyleNames="col-lg-2">Catégorie</b:FormLabel>
+                    <b:FormLabel for="formCategorie" addStyleNames="col-lg-4">Catégorie</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-5">
                         <b:ListBox b:id="formCategorie">
                             <g:item>Multimédia</g:item>
@@ -31,27 +45,57 @@
                 </b:FormGroup>
 
                 <b:FormGroup>
-                    <b:FormLabel for="formName" addStyleNames="col-lg-2">Titre de l'annonce</b:FormLabel>
+                    <b:FormLabel for="formName" addStyleNames="col-lg-4">Titre de l'annonce</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-5">
                         <b:TextBox placeholder="Clair et Concis" b:id="formName"/>
                     </g:FlowPanel>
                 </b:FormGroup>
 
                 <b:FormGroup>
-                    <b:FormLabel for="formText" addStyleNames="col-lg-2">Description</b:FormLabel>
+                    <b:FormLabel for="formText" addStyleNames="col-lg-4">Description</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-5">
                     <b:TextArea/>
                     </g:FlowPanel>
-
+                </b:FormGroup>
+                <b:FormGroup>
+                    <b:FormLabel for="formName" addStyleNames="col-lg-4">Prix</b:FormLabel>
+                    <g:FlowPanel addStyleNames="col-lg-2">
+                        <b:TextBox placeholder="10,00 $CAD" b:id="formName"/>
+                    </g:FlowPanel>
                 </b:FormGroup>
 
                 <b:FormGroup>
-                    <g:FlowPanel addStyleNames="col-lg-offset-4 col-lg-7">
+                    <b:FormLabel for="formName" addStyleNames="col-lg-4">Photos :</b:FormLabel>
+                    <g:FlowPanel addStyleNames="col-lg-2">
+                        <g:FileUpload ui:field="DocPath"/>
+                    </g:FlowPanel>
+                </b:FormGroup>
+
+                <!-- http://stackoverflow.com/questions/7182173/how-to-use-gwt-fileupload -->
+
+                <b:Modal title="Conditions d'utilisation" closable="true" fade="true" dataBackdrop="STATIC" dataKeyboard="true" b:id="myModal">
+                    <b:ModalBody>
+                        <g:HTML>Conditions d'utilisation</g:HTML>
+                    </b:ModalBody>
+                    <b:ModalFooter>
+                        <b:Button type="PRIMARY">Accepter</b:Button>
+                        <b:Button type="DANGER" dataDismiss="MODAL">Fermer</b:Button>
+                    </b:ModalFooter>
+                </b:Modal>
+                <b:Button dataTarget="#myModal" dataToggle="MODAL" type="PRIMARY" size="SMALL" addStyleNames="col-lg-offset-4">Conditions d'utilisation</b:Button>
+
+                <b:FormGroup>
+
+                    <g:FlowPanel addStyleNames="col-lg-offset-6 col-lg-7">
                         <b:Button>Envoyer</b:Button>
+
                     </g:FlowPanel>
                 </b:FormGroup>
             </b:FieldSet>
         </b:Form>
+    </div>
+
+
 
 
 
