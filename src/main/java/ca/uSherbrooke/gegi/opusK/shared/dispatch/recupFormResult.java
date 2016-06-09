@@ -1,7 +1,7 @@
 package ca.uSherbrooke.gegi.opusK.shared.dispatch;
 
 /**
- * Created by tanguy on 09/06/16.
+ * Created by tanguy on 09/06/16.hjk
  */
 public class recupFormResult {
 }
