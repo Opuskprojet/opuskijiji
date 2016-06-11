@@ -95,7 +95,7 @@
         </b:Form>
     </div>
 
-
+        <g:HTML ui:field="serverResponse"/>
 
 
 
