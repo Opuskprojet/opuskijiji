@@ -12,6 +12,8 @@ import org.gwtbootstrap3.client.ui.TextArea;
 import org.gwtbootstrap3.client.ui.TextBox;
 
 import javax.inject.Inject;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implements PostPagePresenter.MyView {
@@ -39,8 +41,12 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
 
     @UiHandler("submitButton")
     void onSend(ClickEvent event) {
-        //(listType.getSelectedItemText());
-        //getUiHandlers().sendForm();
+
+        List<String> datas = Arrays.asList(listType.getSelectedItemText(),
+                listCat.getSelectedItemText(),titreAnnonce.getText(),description.getText()
+                ,prix.getText());
+
+        //getUiHandlers().sendForm(datas);
     }
 
     @Inject

@@ -6,6 +6,8 @@ import com.gwtplatform.dispatch.rpc.server.ExecutionContext;
 import com.gwtplatform.dispatch.rpc.server.actionhandler.ActionHandler;
 import com.gwtplatform.dispatch.shared.ActionException;
 
+import java.util.List;
+
 /**
  * Created by tanguy on 09/06/16.
  */
@@ -14,6 +16,7 @@ public class RecupFormHandler implements ActionHandler<RecupFormAction,RecupForm
     @Override
     public RecupFormResult execute(RecupFormAction action, ExecutionContext executionContext) throws ActionException {
 
+        List<String> datas = action.getDatas();
         // entity set champs
         // dao.persist(entity)
 

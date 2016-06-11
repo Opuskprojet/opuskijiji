@@ -15,6 +15,8 @@ import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
+import java.util.List;
+
 
 public class PostPagePresenter extends Presenter<PostPagePresenter.MyView, PostPagePresenter.MyProxy> implements PostPageUiHandlers{
 
@@ -46,9 +48,9 @@ public class PostPagePresenter extends Presenter<PostPagePresenter.MyView, PostP
     }
 
     @Override
-    public void sendForm()
+    public void sendForm(List<String> datas)
     {
-         RecupFormAction action = new RecupFormAction();
+         RecupFormAction action = new RecupFormAction(datas);
 
         dispatcher.execute(action, new AsyncCallback<RecupFormResult>() {
             @Override
