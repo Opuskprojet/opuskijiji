@@ -13,7 +13,13 @@ public class RecupFormHandler implements ActionHandler<RecupFormAction,RecupForm
 
     @Override
     public RecupFormResult execute(RecupFormAction action, ExecutionContext executionContext) throws ActionException {
-        return null;
+
+        // entity set champs
+        // dao.persist(entity)
+
+
+        String reponse = "Annonce publié sur Opus Kijiji :) !";
+        return new RecupFormResult(reponse);
     }
 
     @Override

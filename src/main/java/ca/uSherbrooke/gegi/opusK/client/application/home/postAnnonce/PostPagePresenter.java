@@ -45,7 +45,8 @@ public class PostPagePresenter extends Presenter<PostPagePresenter.MyView, PostP
 
     }
 
-    private void sendForm()
+    @Override
+    public void sendForm()
     {
          RecupFormAction action = new RecupFormAction();
 
@@ -59,7 +60,6 @@ public class PostPagePresenter extends Presenter<PostPagePresenter.MyView, PostP
             @Override
             public void onSuccess(RecupFormResult recupFormResult) {
                 getView().setServerResponse(recupFormResult.getResponse());
-
             }
         });
     }

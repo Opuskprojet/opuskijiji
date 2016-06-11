@@ -25,7 +25,7 @@
                 <b:FormGroup>
                     <b:FormLabel for="formType" addStyleNames="col-lg-4">Type d'annonce</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-5">
-                        <b:ListBox b:id="formType">
+                        <b:ListBox ui:field="listType" b:id="formType">
                             <g:item>Vente</g:item>
                             <g:item>Don</g:item>
                             <g:item>Location</g:item>
@@ -36,7 +36,7 @@
                 <b:FormGroup>
                     <b:FormLabel for="formCategorie" addStyleNames="col-lg-4">Catégorie</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-5">
-                        <b:ListBox b:id="formCategorie">
+                        <b:ListBox ui:field="listCat" b:id="formCategorie">
                             <g:item>Multimédia</g:item>
                             <g:item>Maison</g:item>
                             <g:item>Immobilier</g:item>
@@ -47,20 +47,20 @@
                 <b:FormGroup>
                     <b:FormLabel for="formName" addStyleNames="col-lg-4">Titre de l'annonce</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-5">
-                        <b:TextBox placeholder="Clair et Concis" b:id="formName"/>
+                        <b:TextBox ui:field="titreAnnonce" placeholder="Clair et Concis" b:id="formName"/>
                     </g:FlowPanel>
                 </b:FormGroup>
 
                 <b:FormGroup>
                     <b:FormLabel for="formText" addStyleNames="col-lg-4">Description</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-5">
-                    <b:TextArea/>
+                    <b:TextArea ui:field="description"/>
                     </g:FlowPanel>
                 </b:FormGroup>
                 <b:FormGroup>
                     <b:FormLabel for="formName" addStyleNames="col-lg-4">Prix</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-2">
-                        <b:TextBox placeholder="10,00 $CAD" b:id="formName"/>
+                        <b:TextBox ui:field="prix" placeholder="10,00 $CAD" b:id="formName"/>
                     </g:FlowPanel>
                 </b:FormGroup>
 
@@ -87,7 +87,7 @@
                 <b:FormGroup>
 
                     <g:FlowPanel addStyleNames="col-lg-offset-6 col-lg-7">
-                        <b:Button>Envoyer</b:Button>
+                        <b:Button ui:field="submitButton">Envoyer</b:Button>
 
                     </g:FlowPanel>
                 </b:FormGroup>
