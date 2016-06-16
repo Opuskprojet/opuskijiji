@@ -26,7 +26,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
 
     @UiHandler("submitButton")
     void onSend(ClickEvent event) {
-        String query = searchBar.getValue();
+        //String query = searchBar.getValue();
         //String categorie = ;
 
         //getUiHandlers().sendSearch(query,caterogie);

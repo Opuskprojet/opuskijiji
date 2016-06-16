@@ -1,6 +1,6 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+             xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:com.google.gwt.user.client.ui">
 
     <g:HTMLPanel>
 
@@ -39,9 +39,9 @@
                                         </form>
                                     </div>
                                 </div>
-                                <button ui:field="submitButton" type="submit" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                </button>
+
+                                <b:Button ui:field="submitButton"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></b:Button>
+
                             </div>
                         </div>
                     </div>
