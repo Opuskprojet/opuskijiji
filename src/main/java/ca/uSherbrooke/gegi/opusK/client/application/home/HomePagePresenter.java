@@ -5,8 +5,18 @@
 
 package ca.uSherbrooke.gegi.opusK.client.application.home;
 
+import ca.uSherbrooke.gegi.commons.core.client.utils.AsyncCallbackFailed;
+import ca.uSherbrooke.gegi.commons.core.shared.dispatch.GetGroupsResult;
+import ca.uSherbrooke.gegi.commons.core.shared.dispatch.GetUsers;
+import ca.uSherbrooke.gegi.commons.core.shared.dispatch.GetUsersResult;
+import ca.uSherbrooke.gegi.commons.core.shared.entity.GroupData;
+import ca.uSherbrooke.gegi.commons.core.shared.entity.UserData;
 import ca.uSherbrooke.gegi.opusK.client.place.NameTokens;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.web.bindery.event.shared.EventBus;
+import com.gwtplatform.common.client.IndirectProvider;
+import com.gwtplatform.common.client.StandardProvider;
+import com.gwtplatform.dispatch.rpc.shared.DispatchAsync;
 import com.gwtplatform.mvp.client.HasUiHandlers;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
@@ -16,6 +26,8 @@ import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by tanguy on 15/06/16.
@@ -23,6 +35,7 @@ import javax.inject.Inject;
 public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomePagePresenter.MyProxy> implements HomePageUiHandlers {
 
     public static final NestedSlot SLOT_MAIN_CONTENT = new NestedSlot();
+
 
     public interface MyView extends View, HasUiHandlers<HomePageUiHandlers> {
 
@@ -37,7 +50,6 @@ public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomeP
     @Inject
     public HomePagePresenter(EventBus eventBus, MyView view, MyProxy proxy ) {
         super(eventBus, view, proxy, RevealType.Root);
-
         getView().setUiHandlers(this);
 
     }
@@ -47,6 +59,7 @@ public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomeP
         super.onReset();
 
     }
+
 
 
 }

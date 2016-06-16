@@ -34,21 +34,28 @@
                 </b:FormGroup>
 
                 <b:FormGroup>
-                    <b:FormLabel for="formCategorie" addStyleNames="col-lg-4">Catégorie</b:FormLabel>
-                    <g:FlowPanel addStyleNames="col-lg-5">
-                        <b:ListBox ui:field="listCat" b:id="formCategorie">
-                            <g:item>Multimédia</g:item>
-                            <g:item>Maison</g:item>
-                            <g:item>Immobilier</g:item>
-                        </b:ListBox>
-                    </g:FlowPanel>
-                </b:FormGroup>
-
-                <b:FormGroup>
                     <b:FormLabel for="formName" addStyleNames="col-lg-4">Titre de l'annonce</b:FormLabel>
                     <g:FlowPanel addStyleNames="col-lg-5">
                         <b:TextBox ui:field="titreAnnonce" placeholder="Clair et Concis" b:id="formName"/>
                     </g:FlowPanel>
+                </b:FormGroup>
+
+                <b:FormGroup>
+                    <b:FormLabel for="formCategorie" addStyleNames="col-lg-4">Catégorie</b:FormLabel>
+                    <g:FlowPanel addStyleNames="col-lg-5">
+                        <b:ListBox ui:field="listCat" b:id="formCategorie">
+                            <g:item> </g:item>
+                            <g:item>Informatique</g:item>
+                            <g:item>Multimédia</g:item>
+                            <g:item>Immobilier</g:item>
+                            <g:item>Articles de maison</g:item>
+                            <g:item>Livres</g:item>
+                        </b:ListBox>
+                    </g:FlowPanel>
+                </b:FormGroup>
+
+                <b:FormGroup ui:field="dynamicForm">
+
                 </b:FormGroup>
 
                 <b:FormGroup>
