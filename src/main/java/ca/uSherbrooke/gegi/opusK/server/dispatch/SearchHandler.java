@@ -12,6 +12,14 @@ import com.gwtplatform.dispatch.shared.ActionException;
 public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
     @Override
     public SearchResult execute(SearchAction searchAction, ExecutionContext executionContext) throws ActionException {
+        String searchQuery = searchAction.getSearchQuery();
+        String categorie = searchAction.getCategorie();
+
+        // DAO find ..
+        // New List<Entity> ...
+        //for.. list.add ...
+        // return new SearchResult(list);
+
         return null;
     }
 

@@ -8,7 +8,9 @@ import com.gwtplatform.mvp.client.ViewImpl;
 
 import javax.inject.Inject;
 
-
+/**
+ * Created by tanguy on 02/06/16.
+ */
 public class ProductPageView extends ViewImpl implements ProductPagePresenter.MyView {
     interface Binder extends UiBinder<Widget, ProductPageView> {
     }

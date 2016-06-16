@@ -17,6 +17,9 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import javax.inject.Inject;
 
+/**
+ * Created by tanguy on 15/06/16.
+ */
 public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomePagePresenter.MyProxy> implements HomePageUiHandlers {
 
     public static final NestedSlot SLOT_MAIN_CONTENT = new NestedSlot();

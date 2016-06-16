@@ -15,7 +15,9 @@ import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ * Created by tanguy on 31/05/16.
+ */
 public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implements PostPagePresenter.MyView {
 
     interface Binder extends UiBinder<Widget, PostPageView> {

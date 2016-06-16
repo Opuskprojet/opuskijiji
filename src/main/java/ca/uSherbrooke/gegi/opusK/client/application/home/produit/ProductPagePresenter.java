@@ -11,7 +11,9 @@ import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 
-
+/**
+ * Created by tanguy on 02/06/16.
+ */
 public class ProductPagePresenter extends Presenter<ProductPagePresenter.MyView, ProductPagePresenter.MyProxy> {
     interface MyView extends View {
     }
