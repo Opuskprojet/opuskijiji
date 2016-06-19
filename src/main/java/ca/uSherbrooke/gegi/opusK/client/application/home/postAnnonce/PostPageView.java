@@ -24,15 +24,9 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     interface Binder extends UiBinder<Widget, PostPageView> {
     }
 
-    private TextBox textinfo;
-    private TextBox textmulti;
-    private TextBox textmaison;
+    private TextBox textinfo,textmulti,textmaison,piece,surface,isbn,etat,auteur;
     private CheckBox checkjardin;
-    private TextBox piece;
-    private TextBox surface;
-    private TextBox isbn;
-    private TextBox auteur;
-    private TextBox etat;
+
     @UiField
     HTML serverResponse;
 
@@ -153,8 +147,8 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowlivre1 = new FlowPanel();
                 flowlivre1.addStyleName("col-lg-5");
 
-                surface = new TextBox();
-                flowlivre1.add(surface);
+                isbn = new TextBox();
+                flowlivre1.add(isbn);
 
                 dynamicForm.add(labellivre1);
                 dynamicForm.add(flowlivre1);
@@ -167,8 +161,8 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowlivre2 = new FlowPanel();
                 flowlivre2.addStyleName("col-lg-5");
 
-                piece = new TextBox();
-                flowlivre2.add(piece);
+                auteur = new TextBox();
+                flowlivre2.add(auteur);
 
                 dynamicForm.add(labellivre2);
                 dynamicForm.add(flowlivre2);
@@ -180,8 +174,8 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowlivre3 = new FlowPanel();
                 flowlivre3.addStyleName("col-lg-5");
 
-                piece = new TextBox();
-                flowlivre3.add(piece);
+                etat = new TextBox();
+                flowlivre3.add(etat);
 
                 dynamicForm.add(labellivre3);
                 dynamicForm.add(flowlivre3);
@@ -195,15 +189,21 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     }
 
 
-
-
-
     @UiHandler("submitButton")
     void onSend(ClickEvent event) {
 
+        /* L'idéal : un case en fonction de la catégorie on envoie que les données utiles ..
+         * à refaire plus tard
+         *
+         * type / categorie / titre / description / prix / etat info / etat multimedia /
+         * etat maison / piece / surface / jardin / etat livre / isbn / auteur;
+         */
+
         List<String> datas = Arrays.asList(listType.getSelectedItemText(),
                 listCat.getSelectedItemText(),titreAnnonce.getText(),description.getText()
-                ,prix.getText());
+                ,prix.getText(), textinfo.getText(),textmulti.getText(),textmaison.getText()
+                ,piece.getText(), surface.getText(),Boolean.toString(checkjardin.getValue()), etat.getText(),
+                isbn.getText(),auteur.getText());
 
         //getUiHandlers().sendForm(datas);
     }
