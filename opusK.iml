@@ -34,8 +34,8 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="opusCommonsCore" />
-          <factory-entry name="opusLaboratoire" />
+          <factory-entry name="opusCommonsCore" value="f321d133-01a5-4c62-b177-75424be564e8" />
+          <factory-entry name="opusLaboratoire" value="f321d133-01a5-4c62-b177-75424be564e8" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
