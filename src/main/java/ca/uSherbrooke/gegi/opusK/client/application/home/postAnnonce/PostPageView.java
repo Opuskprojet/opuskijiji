@@ -5,11 +5,14 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 import org.gwtbootstrap3.client.ui.*;
+import org.gwtbootstrap3.client.ui.CheckBox;
+import org.gwtbootstrap3.client.ui.DoubleBox;
+import org.gwtbootstrap3.client.ui.TextArea;
+import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
 
 import javax.inject.Inject;
@@ -24,8 +27,16 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     interface Binder extends UiBinder<Widget, PostPageView> {
     }
 
-    private TextBox textinfo,textmulti,textmaison,piece,surface,isbn,etat,auteur;
-    private CheckBox checkjardin;
+    // construit tout pour eviter  valeur indéfinie dans la List de datas
+    private TextBox textinfo = new TextBox();
+    private TextBox textmulti = new TextBox();
+    private TextBox textmaison = new TextBox();
+    private TextBox piece = new TextBox();
+    private TextBox isbn = new TextBox();
+    private TextBox etat = new TextBox();
+    private TextBox auteur = new TextBox();
+    private CheckBox checkjardin = new CheckBox();
+    private DoubleBox surface = new DoubleBox();
 
     @UiField
     HTML serverResponse;
@@ -62,7 +73,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowinfo = new FlowPanel();
                 flowinfo.addStyleName("col-lg-5");
 
-                textinfo = new TextBox();
                 flowinfo.add(textinfo);
 
                 dynamicForm.add(labelinfo);
@@ -77,7 +87,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowmulti = new FlowPanel();
                 flowmulti.addStyleName("col-lg-5");
 
-                textmulti = new TextBox();
                 flowmulti.add(textmulti);
 
                 dynamicForm.add(labelmulti);
@@ -92,7 +101,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowmaison = new FlowPanel();
                 flowmaison.addStyleName("col-lg-5");
 
-                 textmaison = new TextBox();
                 flowmaison.add(textmaison);
 
                 dynamicForm.add(labelmaison);
@@ -107,7 +115,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowimmo2 = new FlowPanel();
                 flowimmo2.addStyleName("col-lg-5");
 
-                surface = new TextBox();
                 flowimmo2.add(surface);
 
                 dynamicForm.add(labelimmo2);
@@ -121,7 +128,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowimmo3 = new FlowPanel();
                 flowimmo3.addStyleName("col-lg-5");
 
-                piece = new TextBox();
                 flowimmo3.add(piece);
 
                 dynamicForm.add(labelimmo3);
@@ -131,7 +137,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowimmo1 = new FlowPanel();
                 flowimmo1.addStyleName("col-lg-offset-4 col-lg-5");
 
-                checkjardin = new CheckBox();
                 checkjardin.setText("Jardin");
                 flowimmo1.add(checkjardin);
 
@@ -147,7 +152,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowlivre1 = new FlowPanel();
                 flowlivre1.addStyleName("col-lg-5");
 
-                isbn = new TextBox();
                 flowlivre1.add(isbn);
 
                 dynamicForm.add(labellivre1);
@@ -161,7 +165,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowlivre2 = new FlowPanel();
                 flowlivre2.addStyleName("col-lg-5");
 
-                auteur = new TextBox();
                 flowlivre2.add(auteur);
 
                 dynamicForm.add(labellivre2);
@@ -174,7 +177,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 FlowPanel flowlivre3 = new FlowPanel();
                 flowlivre3.addStyleName("col-lg-5");
 
-                etat = new TextBox();
                 flowlivre3.add(etat);
 
                 dynamicForm.add(labellivre3);
@@ -192,17 +194,16 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     @UiHandler("submitButton")
     void onSend(ClickEvent event) {
 
-        /* L'idéal : un case en fonction de la catégorie on envoie que les données utiles ..
-         * à refaire plus tard
+        /*
          *
-         * type / categorie / titre / description / prix / etat info / etat multimedia /
+         * type / categorie / titre / description / prix / marque info / etat multimedia /
          * etat maison / piece / surface / jardin / etat livre / isbn / auteur;
          */
 
         List<String> datas = Arrays.asList(listType.getSelectedItemText(),
                 listCat.getSelectedItemText(),titreAnnonce.getText(),description.getText()
                 ,prix.getText(), textinfo.getText(),textmulti.getText(),textmaison.getText()
-                ,piece.getText(), surface.getText(),Boolean.toString(checkjardin.getValue()), etat.getText(),
+                ,piece.getText(), String.valueOf(surface.getValue()),Boolean.toString(checkjardin.getValue()), etat.getText(),
                 isbn.getText(),auteur.getText());
 
         //getUiHandlers().sendForm(datas);

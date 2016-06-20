@@ -1,11 +1,11 @@
 package ca.uSherbrooke.gegi.opusK.shared.dispatch;
 
-import com.gwtplatform.dispatch.rpc.shared.ActionImpl;
+import com.gwtplatform.dispatch.rpc.shared.UnsecuredActionImpl;
 
 /**
  * Created by tanguy on 10/06/16.
  */
-public class SearchAction extends ActionImpl<SearchResult> {
+public class SearchAction extends UnsecuredActionImpl<SearchResult> {
 
 
     private String searchQuery;

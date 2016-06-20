@@ -1,13 +1,13 @@
 package ca.uSherbrooke.gegi.opusK.shared.dispatch;
 
-import com.gwtplatform.dispatch.rpc.shared.ActionImpl;
+import com.gwtplatform.dispatch.rpc.shared.UnsecuredActionImpl;
 
 import java.util.List;
 
 /**
  * Created by tanguy on 09/06/16.
  */
-public class RecupFormAction extends ActionImpl<RecupFormResult> {
+public class RecupFormAction extends UnsecuredActionImpl<RecupFormResult> {
 
     private List<String> datas;
 

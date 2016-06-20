@@ -24,7 +24,7 @@ public class Annonces_opusk {
     private String typeAnnonce;
     private String categorie;
     private String marque;
-    private Double surface;
+    private double surface;
     private String etat1;
     private String isbn;
     private String auteur;
@@ -129,11 +129,11 @@ public class Annonces_opusk {
 
 
     @Column(name = "surface")
-    public Double getSurface() {
+    public double getSurface() {
         return surface;
     }
 
-    public void setSurface(Double surface) {
+    public void setSurface(double surface) {
         this.surface = surface;
     }
 
