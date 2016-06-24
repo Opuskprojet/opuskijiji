@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="opusLaboratoire:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="opusLaboratoire.war">
+      <element id="artifact" artifact-name="opusLaboratoire:war exploded" />
+    </root>
+  </artifact>
+</component>

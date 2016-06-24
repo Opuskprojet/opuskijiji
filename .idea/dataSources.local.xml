@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - opus@localhost" uuid="f321d133-01a5-4c62-b177-75424be564e8">
+      <secret-storage>master_key</secret-storage>
+      <user-name>superopus</user-name>
+      <schema-pattern>opus.audit opus.content opus.file opus.notification opus.opusk opus.pinboard opus.public opus.resource</schema-pattern>
+      <default-schemas>opus.audit opus.content opus.file opus.notification opus.opusk opus.pinboard opus.public opus.resource</default-schemas>
+    </data-source>
+  </component>
+</project>

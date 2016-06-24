@@ -1,0 +1,31 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <ui:with type="ca.uSherbrooke.gegi.opusK.client.place.NameTokens" field="nameTokens"></ui:with>
+
+
+    <g:HTMLPanel tag="nav">
+
+        <!-- https://www.gel.usherbrooke.ca/opus/opus/images/menu_background.png -->
+        <div class="main-menu" style="background-image: url('http://puu.sh/p86TW/c62d596e9d.png');">
+            <h1 style="color:white; font-family:verdana; text-align:center;font-size:300%"> Opus Kijiji</h1>
+        </div>
+
+        <ul class="nav nav-tabs">
+
+            <li>
+                <a href="#{nameTokens.getConsult}">Consulter les annonces</a>
+            </li>
+            <li>
+                <a href="#{nameTokens.getPost}">Poster une annonce</a>
+            </li>
+            <li>
+                <a href="#{nameTokens.getChat}">Messages</a>
+            </li>
+            <li>
+                <a href="#{nameTokens.getConsult}">Vos Annonces</a>
+            </li>
+        </ul>
+    </g:HTMLPanel>
+</ui:UiBinder>
