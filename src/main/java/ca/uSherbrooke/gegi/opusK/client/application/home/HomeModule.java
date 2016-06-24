@@ -5,15 +5,15 @@
 
 package ca.uSherbrooke.gegi.opusK.client.application.home;
 
-import ca.uSherbrooke.gegi.opusK.client.application.home.sideMenu.SideMenuModule;
+import ca.uSherbrooke.gegi.opusK.client.application.home.produit.ProductPageModule;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
 public class HomeModule extends AbstractPresenterModule {
     @Override
     protected void configure() {
-        install(new SideMenuModule());
-
         bindPresenter(HomePagePresenter.class, HomePagePresenter.MyView.class, HomePageView.class,
                 HomePagePresenter.MyProxy.class);
     }
 }
+
+//commentaire de test77

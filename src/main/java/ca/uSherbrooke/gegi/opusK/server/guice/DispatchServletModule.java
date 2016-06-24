@@ -12,6 +12,6 @@ import com.google.inject.servlet.ServletModule;
 public class DispatchServletModule extends ServletModule {
     @Override
     public void configureServlets() {
-    	install(new OpusDaoModule("K"));
+    	install(new OpusDaoModule("Laboratoire"));
     }
 }
