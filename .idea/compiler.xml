@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="opusK" />
         <module name="opusLaboratoire" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="opusK" target="1.7" />
       <module name="opusLaboratoire" target="1.7" />
     </bytecodeTargetLevel>
   </component>
