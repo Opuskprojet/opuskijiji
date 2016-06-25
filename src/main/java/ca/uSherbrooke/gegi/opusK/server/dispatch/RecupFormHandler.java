@@ -46,7 +46,7 @@ public class RecupFormHandler implements ActionHandler<RecupFormAction,RecupForm
         Annonces_opusk annonce = new Annonces_opusk();
 
         annonce.setCip(session.getAdministrativeUserId());
-        annonce.setTypeAnnonce(datas.get(0));
+        annonce.setType_Annonce(datas.get(0));
         annonce.setCategorie(datas.get(1));
         annonce.setTitre(datas.get(2));
         annonce.setDescription(datas.get(3));
@@ -54,7 +54,7 @@ public class RecupFormHandler implements ActionHandler<RecupFormAction,RecupForm
         annonce.setMarque(datas.get(5));
         annonce.setEtat1(datas.get(6));
         annonce.setEtat3(datas.get(7));
-        annonce.setPieces(datas.get(8));
+        annonce.setPieces(Integer.valueOf(datas.get(8)));
         annonce.setSurface(Double.valueOf(datas.get(9)));
         annonce.setJardin(Boolean.valueOf(datas.get(10)));
         annonce.setEtat2(datas.get(11));

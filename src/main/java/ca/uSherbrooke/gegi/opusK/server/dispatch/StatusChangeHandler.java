@@ -29,7 +29,7 @@ public class StatusChangeHandler implements ActionHandler<StatusChangeAction,Sta
 
         if(annonce != null)
         {
-            //annonce.setStatus = !annonce.getStatus;
+            //annonce.setStatut = !annonce.getStatut;
 
             em.merge(annonce);
             em.close();

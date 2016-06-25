@@ -47,6 +47,15 @@ public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
         else
         {
             if(categorie == "All")
+                categorie ="";
+
+            results = em.createNamedQuery("getTEEEEEEEEESSST", Annonces_opusk.class)
+                    .setParameter(1,categorie)
+                    .setParameter(2,searchQuery)
+                    .setParameter(3,true)
+                    .getResultList();
+
+            /* if(categorie == "All")
             {
                 if(searchQuery.isEmpty())
                 {
@@ -79,7 +88,7 @@ public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
                             .setParameter(3, true)
                             .getResultList();
                 }
-            }
+            }*/
         }
 
 

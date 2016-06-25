@@ -24,20 +24,27 @@ import java.sql.Date;
         @NamedNativeQuery(
             name    =   "getByTextOnly",
             query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.titre = ?" +
-                    " AND annonces_opusk.status = ?",
+                    " AND annonces_opusk.status  LIKE '%?%' ",
             resultClass= Annonces_opusk.class
         ),
         @NamedNativeQuery(
                 name    =   "getByBoth",
-                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.cip = ?" +
-                        " AND annonces_opusk.status = ?" +
-                        "AND  annonces_opusk.titre = ?",
+                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie = ?" +
+                        "AND  annonces_opusk.titre LIKE '%?%'  "+
+                        " AND annonces_opusk.status = ?",
                 resultClass= Annonces_opusk.class
         ),
         @NamedNativeQuery(
                 name    =   "getAllDefault",
                 query   =   "SELECT * FROM opusk.annonces_opusk" +
                              " WHERE annonces_opusk.status = ? ",
+                resultClass= Annonces_opusk.class
+        ),
+        @NamedNativeQuery(
+                name    =   "getTEEEEEEEEESSST",
+                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie LIKE '%'+ ? +'%' " +
+                            " AND annonces_opusk.titre LIKE '%'+ ? +'%' " +
+                            " AND annonces_opusk.status = ? ",
                 resultClass= Annonces_opusk.class
         )
 })
@@ -54,9 +61,9 @@ public class Annonces_opusk  implements Serializable {
     private String cip;
     private String titre;
     private String description;
-    private Date dateCreation;
-    private Date dateExpiration;
-    private String typeAnnonce;
+    private Date date_Creation;
+    private Date date_Expiration;
+    private String type_Annonce;
     private String categorie;
     private String marque;
     private Double surface;
@@ -68,7 +75,7 @@ public class Annonces_opusk  implements Serializable {
     private String chemin;
     private String nom;
     private Double prix;
-    private String pieces;
+    private Integer pieces;
     private boolean jardin;
 
 
@@ -109,32 +116,32 @@ public class Annonces_opusk  implements Serializable {
 
 
     @Column(name = "date_creation")
-    public Date getDateCreation() {
-        return dateCreation;
+    public Date getDate_Creation() {
+        return date_Creation;
     }
 
-    public void setDateCreation(Date dateCreation) {
-        this.dateCreation = dateCreation;
+    public void setDate_Creation(Date date_Creation) {
+        this.date_Creation = date_Creation;
     }
 
 
     @Column(name = "date_expiration")
-    public Date getDateExpiration() {
-        return dateExpiration;
+    public Date getDate_Expiration() {
+        return date_Expiration;
     }
 
-    public void setDateExpiration(Date dateExpiration) {
-        this.dateExpiration = dateExpiration;
+    public void setDate_Expiration(Date date_Expiration) {
+        this.date_Expiration = date_Expiration;
     }
 
 
     @Column(name = "type_annonce")
-    public String getTypeAnnonce() {
-        return typeAnnonce;
+    public String getType_Annonce() {
+        return type_Annonce;
     }
 
-    public void setTypeAnnonce(String typeAnnonce) {
-        this.typeAnnonce = typeAnnonce;
+    public void setType_Annonce(String type_Annonce) {
+        this.type_Annonce = type_Annonce;
     }
 
 
@@ -249,11 +256,11 @@ public class Annonces_opusk  implements Serializable {
 
 
     @Column(name = "pieces")
-    public String getPieces() {
+    public Integer getPieces() {
         return pieces;
     }
 
-    public void setPieces(String pieces) {
+    public void setPieces(Integer pieces) {
         this.pieces = pieces;
     }
 
