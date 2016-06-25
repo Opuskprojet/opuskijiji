@@ -9,6 +9,39 @@ import java.sql.Date;
  */
 
 
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name    =   "getByCategorieOnly",
+                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie = ?" +
+                        " AND annonces_opusk.status = ?",
+                resultClass=Annonces_opusk.class
+        ),
+        @NamedNativeQuery(
+                name    =   "getVosAnnonces",
+                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.cip = ?",
+                resultClass= Annonces_opusk.class
+        ),
+        @NamedNativeQuery(
+            name    =   "getByTextOnly",
+            query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.titre = ?" +
+                    " AND annonces_opusk.status = ?",
+            resultClass= Annonces_opusk.class
+        ),
+        @NamedNativeQuery(
+                name    =   "getByBoth",
+                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.cip = ?" +
+                        " AND annonces_opusk.status = ?" +
+                        "AND  annonces_opusk.titre = ?",
+                resultClass= Annonces_opusk.class
+        ),
+        @NamedNativeQuery(
+                name    =   "getAllDefault",
+                query   =   "SELECT * FROM opusk.annonces_opusk" +
+                             " WHERE annonces_opusk.status = ? ",
+                resultClass= Annonces_opusk.class
+        )
+})
+
 @Entity
 @Table(name = "annonces_opusk", schema = "opusk")
 public class Annonces_opusk  implements Serializable {

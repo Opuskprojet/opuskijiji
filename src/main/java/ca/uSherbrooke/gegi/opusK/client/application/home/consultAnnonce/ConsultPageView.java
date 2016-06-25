@@ -55,7 +55,9 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
             //for int i < server.size ... on construit les annonces
             if(vosAnnonces)
             {
-                // ajoute les options de management (coloonne suppression)
+                // ajoute les options de management (coloonne avec bouton suppression)
+                // action update -> status inactif
+                // em.merge()
             }
         }
 
