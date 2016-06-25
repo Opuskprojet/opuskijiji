@@ -5,9 +5,11 @@ import ca.uSherbrooke.gegi.opusK.shared.dispatch.StatusChangeResult;
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
 import com.gwtplatform.dispatch.rpc.server.ExecutionContext;
 import com.gwtplatform.dispatch.rpc.server.actionhandler.ActionHandler;
-import com.gwtplatform.dispatch.rpc.shared.Action;
-import com.gwtplatform.dispatch.rpc.shared.Result;
 import com.gwtplatform.dispatch.shared.ActionException;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  * Created by tanguy on 25/06/16.
@@ -20,14 +22,25 @@ public class StatusChangeHandler implements ActionHandler<StatusChangeAction,Sta
 
         String annonceId = action.getAnnonceId();
 
-        /*
-        Annonces_opusk annonce = myDao.find( annonceID);
-        annonce.setStatus = ;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("opusLaboratoire");
+        EntityManager em = emf.createEntityManager();
 
-        myDao.merge(annonce);
-*/
+        Annonces_opusk annonce = em.find(Annonces_opusk.class,annonceId);
 
-        return null;
+        if(annonce != null)
+        {
+            //annonce.setStatus = !annonce.getStatus;
+
+            em.merge(annonce);
+            em.close();
+            emf.close();
+            return new StatusChangeResult("Statut de l'annonce changé !");
+        }
+        else {
+            em.close();
+            emf.close();
+            return new StatusChangeResult("Erreur annonce non trouvée");
+        }
     }
 
     @Override

@@ -22,9 +22,6 @@ import java.util.List;
  */
 public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
 
-    @Inject
-    @Opus
-    Dao myDao;
 
     @Inject
     UserSession session;
