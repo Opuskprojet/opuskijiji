@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab072713-cc33-428b-a13d-884a2d607a3d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/client/application/home/consultAnnonce/ConsultPagePresenter.java" afterPath="$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/client/application/home/consultAnnonce/ConsultPagePresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/client/application/home/consultAnnonce/ConsultPageView.java" afterPath="$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/client/application/home/consultAnnonce/ConsultPageView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/client/application/home/consultAnnonce/ConsultPageView.ui.xml" afterPath="$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/client/application/home/consultAnnonce/ConsultPageView.ui.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/shared/dispatch/SearchResult.java" afterPath="$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/shared/dispatch/SearchResult.java" />
     </list>
     <ignored path="opusLaboratoire.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1032,7 +1028,7 @@
       <workItem from="1466690842224" duration="3416000" />
       <workItem from="1466807112637" duration="118000" />
       <workItem from="1466807243435" duration="67000" />
-      <workItem from="1466812387801" duration="918000" />
+      <workItem from="1466812387801" duration="976000" />
     </task>
     <task id="LOCAL-00001" summary="Change folder  -&gt; ressource folder">
       <created>1464804932555</created>
@@ -1160,22 +1156,29 @@
       <option name="project" value="LOCAL" />
       <updated>1466461759331</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="debut affichage consult annonce">
+      <created>1466813335945</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1466813335945</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57429000" />
+    <option name="totallyTimeSpent" value="57487000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="742" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24223602" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24223602" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18012422" sideWeight="0.4941435" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1229,7 +1232,8 @@
     <MESSAGE value="leger changement query vers action (post)" />
     <MESSAGE value="ajout de l'entité faite par Joel" />
     <MESSAGE value="post annonce quasi finit erreur implementation à corriger" />
-    <option name="LAST_COMMIT_MESSAGE" value="post annonce quasi finit erreur implementation à corriger" />
+    <MESSAGE value="debut affichage consult annonce" />
+    <option name="LAST_COMMIT_MESSAGE" value="debut affichage consult annonce" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
