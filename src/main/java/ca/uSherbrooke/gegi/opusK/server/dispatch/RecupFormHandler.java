@@ -60,6 +60,7 @@ public class RecupFormHandler implements ActionHandler<RecupFormAction,RecupForm
         annonce.setEtat2(datas.get(11));
         annonce.setIsbn(datas.get(12));
         annonce.setAuteur(datas.get(13));
+        annonce.setStatut(true);
 
 
        // em.getTransaction().begin();

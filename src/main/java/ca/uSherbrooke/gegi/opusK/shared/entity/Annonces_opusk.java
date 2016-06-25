@@ -77,6 +77,7 @@ public class Annonces_opusk  implements Serializable {
     private Double prix;
     private Integer pieces;
     private boolean jardin;
+    private boolean statut;
 
 
     @Column(name = "id")
@@ -274,6 +275,14 @@ public class Annonces_opusk  implements Serializable {
         this.jardin = jardin;
     }
 
+    @Column(name = "statut")
+    public boolean getStatut() {
+        return statut;
+    }
+
+    public void setStatut(boolean statut) {
+        this.statut = statut;
+    }
 
 
     @Override

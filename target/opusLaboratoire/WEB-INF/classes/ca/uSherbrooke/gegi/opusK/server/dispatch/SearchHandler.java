@@ -11,6 +11,9 @@ import com.gwtplatform.dispatch.rpc.server.ExecutionContext;
 import com.gwtplatform.dispatch.rpc.server.actionhandler.ActionHandler;
 import com.gwtplatform.dispatch.shared.ActionException;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +22,6 @@ import java.util.List;
  */
 public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
 
-    @Inject
-    @Opus
-    Dao myDao;
 
     @Inject
     UserSession session;
@@ -31,16 +31,71 @@ public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
         String searchQuery = searchAction.getSearchQuery();
         String categorie = searchAction.getCategorie();
         boolean vosAnnonces = searchAction.getVosAnnonces();
+        List<Annonces_opusk> results;
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("opusLaboratoire");
+        EntityManager em = emf.createEntityManager();
 
         String cip =  session.getAdministrativeUserId();
 
-        // if vosAnnonces on place cip dans find
+        if(vosAnnonces)
+        {
+            results = em.createNamedQuery("getVosAnnonces", Annonces_opusk.class)
+                    .setParameter(1,cip)
+                    .getResultList();
+        }
+        else
+        {
+            if(categorie == "All")
+                categorie ="";
 
-        // DAO find ..
-        List<Annonces_opusk> results = new ArrayList<Annonces_opusk>();
+            results = em.createNamedQuery("getTEEEEEEEEESSST", Annonces_opusk.class)
+                    .setParameter(1,categorie)
+                    .setParameter(2,searchQuery)
+                    .setParameter(3,true)
+                    .getResultList();
 
-        //for.. list.add ...
-         return new SearchResult(results);
+            /* if(categorie == "All")
+            {
+                if(searchQuery.isEmpty())
+                {
+                    results = em.createNamedQuery("getAllDefault", Annonces_opusk.class)
+                            .setParameter(1, true)
+                            .getResultList();
+                }
+                else
+                {
+                    results = em.createNamedQuery("getByTextOnly", Annonces_opusk.class)
+                            .setParameter(1,searchQuery)
+                            .setParameter(2, true)
+                            .getResultList();
+                }
+            }
+            else
+            {
+                if(searchQuery.isEmpty())
+                {
+                    results = em.createNamedQuery("getByCategorieOnly", Annonces_opusk.class)
+                            .setParameter(1,categorie)
+                            .setParameter(2, true)
+                            .getResultList();
+                }
+                else
+                {
+                    results = em.createNamedQuery("getByBoth", Annonces_opusk.class)
+                            .setParameter(1,categorie)
+                            .setParameter(2, searchQuery)
+                            .setParameter(3, true)
+                            .getResultList();
+                }
+            }*/
+        }
+
+
+        em.close();
+        emf.close();
+
+         return new SearchResult(results, vosAnnonces);
 
     }
 

@@ -6,6 +6,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.IntegerBox;
 import com.google.gwt.user.client.ui.ListBox;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 import org.gwtbootstrap3.client.ui.*;
@@ -31,7 +32,7 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     private TextBox textinfo = new TextBox();
     private TextBox textmulti = new TextBox();
     private TextBox textmaison = new TextBox();
-    private TextBox piece = new TextBox();
+    private IntegerBox piece = new IntegerBox();
     private TextBox isbn = new TextBox();
     private TextBox etat = new TextBox();
     private TextBox auteur = new TextBox();
@@ -199,13 +200,14 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
          * type / categorie / titre / description / prix / marque info / etat multimedia /
          * etat maison / piece / surface / jardin / etat livre / isbn / auteur;
          */
-        surface.setValue(setDefault(surface.getValue()));
-        prix.setValue(setDefault(prix.getValue()));
+        surface.setValue(setDefaultDouble(surface.getValue()));
+        prix.setValue(setDefaultDouble(prix.getValue()));
+        piece.setValue(setDefaultInt(piece.getValue()));
 
         List<String> datas = Arrays.asList(listType.getSelectedItemText(),
                 listCat.getSelectedItemText(),titreAnnonce.getText(),description.getText()
                 , String.valueOf(prix.getValue()), textinfo.getText(),textmulti.getText(),textmaison.getText()
-                ,piece.getText(), String.valueOf(surface.getValue()),Boolean.toString(checkjardin.getValue()), etat.getText(),
+                ,String.valueOf(piece.getValue()), String.valueOf(surface.getValue()),Boolean.toString(checkjardin.getValue()), etat.getText(),
                 isbn.getText(),auteur.getText());
 
         getUiHandlers().sendForm(datas);
@@ -222,10 +224,16 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     }
 
 
-    private Double setDefault (Double value)
+    private Double setDefaultDouble (Double value)
     {
         if(value == null)
             value = 0.0;
+        return value;
+    }
+    private Integer setDefaultInt (Integer value)
+    {
+        if(value == null)
+            value = 0;
         return value;
     }
 }
