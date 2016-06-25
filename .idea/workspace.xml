@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab072713-cc33-428b-a13d-884a2d607a3d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ff.txt" afterPath="$PROJECT_DIR$/ff.txt" />
     </list>
     <ignored path="opusLaboratoire.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/ff.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+              <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -57,7 +55,7 @@
       <file leaf-file-name="Annonces_opusk.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/shared/entity/Annonces_opusk.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
+            <state relative-caret-position="506">
               <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -656,7 +654,9 @@
       <workItem from="1466687036025" duration="3448000" />
       <workItem from="1466690842224" duration="3416000" />
       <workItem from="1466807112637" duration="118000" />
-      <workItem from="1466807243435" duration="67000" />
+      <workItem from="1466807243435" duration="111000" />
+      <workItem from="1466807389341" duration="119000" />
+      <workItem from="1466813919554" duration="316000" />
     </task>
     <task id="LOCAL-00001" summary="Change folder  -&gt; ressource folder">
       <created>1464804932555</created>
@@ -784,11 +784,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466461759331</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="dernier push and commit de test">
+      <created>1466807326915</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1466807326915</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56511000" />
+    <option name="totallyTimeSpent" value="56990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -853,7 +860,8 @@
     <MESSAGE value="leger changement query vers action (post)" />
     <MESSAGE value="ajout de l'entité faite par Joel" />
     <MESSAGE value="post annonce quasi finit erreur implementation à corriger" />
-    <option name="LAST_COMMIT_MESSAGE" value="post annonce quasi finit erreur implementation à corriger" />
+    <MESSAGE value="dernier push and commit de test" />
+    <option name="LAST_COMMIT_MESSAGE" value="dernier push and commit de test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1006,7 +1014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1096,7 +1103,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ca/uSherbrooke/gegi/opusK/shared/entity/Annonces_opusk.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
+        <state relative-caret-position="506">
           <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1123,7 +1130,7 @@
     <entry file="file://$PROJECT_DIR$/ff.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
           <folding />
         </state>
       </provider>
