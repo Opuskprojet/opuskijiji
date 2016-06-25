@@ -32,14 +32,13 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
     }
 
     interface MyView extends View, HasUiHandlers<ConsultPagePresenter> {
-        void setServerResponse(List<Annonces_opusk> serverResponse);
+        void setServerResponse(List<Annonces_opusk> serverResponse, boolean vosAnnonces);
         void setServerError(String error);
     }
 
 
 
     private final DispatchAsync dispatcher;
-    private List<Annonces_opusk> annonces;
 
     @Inject
     ConsultPagePresenter(
@@ -66,7 +65,7 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
 
             @Override
             public void onSuccess(SearchResult searchResult) {
-                annonces = searchResult.getAnnonces();
+                getView().setServerResponse(searchResult.getAnnonces(),searchResult.getVosAnnonces());
             }
         });
 

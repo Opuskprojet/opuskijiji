@@ -2,13 +2,13 @@ package ca.uSherbrooke.gegi.opusK.client.application.home.consultAnnonce;
 
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
 import com.google.gwt.dom.client.InputElement;
+import com.google.gwt.dom.client.TableElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
-import org.gwtbootstrap3.client.ui.Input;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -24,6 +24,9 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
 
     @UiField
     InputElement searchBar;
+
+    @UiField
+    TableElement tableResult;
 
     @UiHandler("submitButton")
     void onSend(ClickEvent event) {
@@ -41,8 +44,21 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     }
 
     @Override
-    public void setServerResponse(List<Annonces_opusk> serverResponse) {
+    public void setServerResponse(List<Annonces_opusk> serverResponse, boolean vosAnnonces) {
         // Presenter les resultats dynamiquements
+        if(serverResponse.size() == 0)
+        {
+            //  affiche text "aucun resultat"
+        }
+        else
+        {
+            //for int i < server.size ... on construit les annonces
+            if(vosAnnonces)
+            {
+                // ajoute les options de management (coloonne suppression)
+            }
+        }
+
     }
 
     @Override

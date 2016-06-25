@@ -12,9 +12,11 @@ import java.util.List;
 public class SearchResult implements Result {
 
     private List<Annonces_opusk> annonces;
+    private Boolean vosAnnonces;
 
-    public SearchResult(final List<Annonces_opusk> annonces) {
+    public SearchResult(final List<Annonces_opusk> annonces, final boolean vosAnnonces) {
         this.annonces = annonces;
+        this.vosAnnonces = vosAnnonces;
     }
 
     /**
@@ -26,5 +28,9 @@ public class SearchResult implements Result {
 
     public List<Annonces_opusk> getAnnonces() {
         return annonces;
+    }
+
+    public Boolean getVosAnnonces() {
+        return vosAnnonces;
     }
 }
