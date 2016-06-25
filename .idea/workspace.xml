@@ -1028,7 +1028,7 @@
       <workItem from="1466690842224" duration="3416000" />
       <workItem from="1466807112637" duration="118000" />
       <workItem from="1466807243435" duration="67000" />
-      <workItem from="1466812387801" duration="976000" />
+      <workItem from="1466812387801" duration="1913000" />
     </task>
     <task id="LOCAL-00001" summary="Change folder  -&gt; ressource folder">
       <created>1464804932555</created>
@@ -1163,11 +1163,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466813335945</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="debut affichage consult annonce">
+      <created>1466813370619</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1466813370619</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57487000" />
+    <option name="totallyTimeSpent" value="58424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="742" extended-state="6" />
