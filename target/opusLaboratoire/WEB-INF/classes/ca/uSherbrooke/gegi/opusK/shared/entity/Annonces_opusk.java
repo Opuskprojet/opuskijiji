@@ -42,9 +42,9 @@ import java.sql.Date;
         ),
         @NamedNativeQuery(
                 name    =   "getTEEEEEEEEESSST",
-                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie LIKE '%'+ ? +'%' " +
-                            " AND annonces_opusk.titre LIKE '%'+ ? +'%' " +
-                            " AND annonces_opusk.status = ? ",
+                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie LIKE :cat " +
+                            " AND annonces_opusk.titre LIKE :titre " +
+                            " AND annonces_opusk.status = :stat ",
                 resultClass= Annonces_opusk.class
         )
 })
@@ -77,6 +77,7 @@ public class Annonces_opusk  implements Serializable {
     private Double prix;
     private Integer pieces;
     private boolean jardin;
+    private boolean statut;
 
 
     @Column(name = "id")
@@ -274,6 +275,14 @@ public class Annonces_opusk  implements Serializable {
         this.jardin = jardin;
     }
 
+    @Column(name = "statut")
+    public boolean getStatut() {
+        return statut;
+    }
+
+    public void setStatut(boolean statut) {
+        this.statut = statut;
+    }
 
 
     @Override

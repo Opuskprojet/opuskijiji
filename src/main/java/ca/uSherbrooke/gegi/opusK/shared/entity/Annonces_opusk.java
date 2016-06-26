@@ -42,9 +42,9 @@ import java.sql.Date;
         ),
         @NamedNativeQuery(
                 name    =   "getTEEEEEEEEESSST",
-                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie LIKE '%'+ ? +'%' " +
-                            " AND annonces_opusk.titre LIKE '%'+ ? +'%' " +
-                            " AND annonces_opusk.status = ? ",
+                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie LIKE :cat " +
+                            " AND annonces_opusk.titre LIKE :titre " +
+                            " AND annonces_opusk.status = :stat ",
                 resultClass= Annonces_opusk.class
         )
 })

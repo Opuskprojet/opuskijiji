@@ -46,13 +46,13 @@ public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
         }
         else
         {
-            if(categorie == "All")
+            if(categorie.equals("All"))
                 categorie ="";
 
             results = em.createNamedQuery("getTEEEEEEEEESSST", Annonces_opusk.class)
-                    .setParameter(1,categorie)
-                    .setParameter(2,searchQuery)
-                    .setParameter(3,true)
+                    .setParameter("cat", "%" + categorie +"%")
+                    .setParameter("titre", "%" + searchQuery + "%")
+                    .setParameter("stat",true)
                     .getResultList();
 
             /* if(categorie == "All")

@@ -7,6 +7,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
@@ -28,13 +29,15 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     @UiField
     TableElement tableResult;
 
+    @UiField
+    ListBox listCat;
+
     @UiHandler("submitButton")
     void onSend(ClickEvent event) {
         String query = searchBar.getValue();
-        //String categorie = ;
+        String categorie = listCat.getSelectedItemText();
 
-
-        //getUiHandlers().sendSearch(query,caterogie, false);
+        getUiHandlers().sendSearch(query,categorie, false);
     }
 
 
