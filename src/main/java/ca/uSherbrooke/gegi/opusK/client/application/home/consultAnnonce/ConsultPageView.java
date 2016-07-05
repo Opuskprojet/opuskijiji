@@ -65,7 +65,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
                 if (vosAnnonces) {
                     // ajoute les options de management (colonne avec bouton statut)
                     // click listener  bouton pour declencher action
-                    // dispatch exec
+                    //getUiHandlers().statusChange(this.getId);
                 }
 
             }
