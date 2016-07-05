@@ -16,11 +16,15 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by tanguy on 10/06/16.
  */
 public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
+
+    static private Logger logger = Logger.getLogger("SearchHandler");
 
 
     @Inject
@@ -46,51 +50,18 @@ public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
         }
         else
         {
-            if(categorie == "All")
+            if(categorie.equals("All"))
                 categorie ="";
 
-            results = em.createNamedQuery("getTEEEEEEEEESSST", Annonces_opusk.class)
-                    .setParameter(1,categorie)
-                    .setParameter(2,searchQuery)
+            results = em.createNamedQuery("getSearchResult", Annonces_opusk.class)
+                    .setParameter(1, "%" + categorie +"%")
+                    .setParameter(2, "%" + searchQuery + "%")
                     .setParameter(3,true)
                     .getResultList();
 
-            /* if(categorie == "All")
-            {
-                if(searchQuery.isEmpty())
-                {
-                    results = em.createNamedQuery("getAllDefault", Annonces_opusk.class)
-                            .setParameter(1, true)
-                            .getResultList();
-                }
-                else
-                {
-                    results = em.createNamedQuery("getByTextOnly", Annonces_opusk.class)
-                            .setParameter(1,searchQuery)
-                            .setParameter(2, true)
-                            .getResultList();
-                }
-            }
-            else
-            {
-                if(searchQuery.isEmpty())
-                {
-                    results = em.createNamedQuery("getByCategorieOnly", Annonces_opusk.class)
-                            .setParameter(1,categorie)
-                            .setParameter(2, true)
-                            .getResultList();
-                }
-                else
-                {
-                    results = em.createNamedQuery("getByBoth", Annonces_opusk.class)
-                            .setParameter(1,categorie)
-                            .setParameter(2, searchQuery)
-                            .setParameter(3, true)
-                            .getResultList();
-                }
-            }*/
         }
 
+        logger.log(Level.INFO,"nb annonces trouvée : " + results.size());
 
         em.close();
         emf.close();

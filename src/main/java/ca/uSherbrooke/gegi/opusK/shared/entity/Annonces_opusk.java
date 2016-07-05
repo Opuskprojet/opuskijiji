@@ -10,41 +10,17 @@ import java.sql.Date;
 
 
 @NamedNativeQueries({
-        @NamedNativeQuery(
-                name    =   "getByCategorieOnly",
-                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie = ?" +
-                        " AND annonces_opusk.status = ?",
-                resultClass=Annonces_opusk.class
-        ),
+
         @NamedNativeQuery(
                 name    =   "getVosAnnonces",
                 query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.cip = ?",
                 resultClass= Annonces_opusk.class
         ),
         @NamedNativeQuery(
-            name    =   "getByTextOnly",
-            query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.titre = ?" +
-                    " AND annonces_opusk.status  LIKE '%?%' ",
-            resultClass= Annonces_opusk.class
-        ),
-        @NamedNativeQuery(
-                name    =   "getByBoth",
-                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie = ?" +
-                        "AND  annonces_opusk.titre LIKE '%?%'  "+
-                        " AND annonces_opusk.status = ?",
-                resultClass= Annonces_opusk.class
-        ),
-        @NamedNativeQuery(
-                name    =   "getAllDefault",
-                query   =   "SELECT * FROM opusk.annonces_opusk" +
-                             " WHERE annonces_opusk.status = ? ",
-                resultClass= Annonces_opusk.class
-        ),
-        @NamedNativeQuery(
-                name    =   "getTEEEEEEEEESSST",
-                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie LIKE :cat " +
-                            " AND annonces_opusk.titre LIKE :titre " +
-                            " AND annonces_opusk.status = :stat ",
+                name    =   "getSearchResult",
+                query   =   "SELECT * FROM opusk.annonces_opusk WHERE annonces_opusk.categorie ILIKE ? " +
+                            " AND annonces_opusk.titre ILIKE ? " +
+                            " AND annonces_opusk.statut = ? ",
                 resultClass= Annonces_opusk.class
         )
 })

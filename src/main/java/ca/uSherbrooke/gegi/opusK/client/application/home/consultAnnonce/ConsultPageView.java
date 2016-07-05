@@ -34,7 +34,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
 
     @UiHandler("submitButton")
     void onSend(ClickEvent event) {
-        String query = searchBar.getValue();
+        String query = searchBar.getValue().trim();
         String categorie = listCat.getSelectedItemText();
 
         getUiHandlers().sendSearch(query,categorie, false);
@@ -48,6 +48,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
 
     @Override
     public void setServerResponse(List<Annonces_opusk> serverResponse, boolean vosAnnonces) {
+
         // Presenter les resultats dynamiquements
         if(serverResponse.size() == 0)
         {
@@ -55,14 +56,19 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         }
         else
         {
-            //for int i < server.size ... on construit les annonces
-            if(vosAnnonces)
+            // declare Tableau de i bouton qui auront en value l'id de l'annonce
+
+            for (int i = 0; i < serverResponse.size(); i++)
             {
-                // ajoute les options de management (colonne avec bouton statut)
-                // click listener  bouton pour declencher action
-                // dispatch exec
+                // ... on construit les annonces
+                //
+                if (vosAnnonces) {
+                    // ajoute les options de management (colonne avec bouton statut)
+                    // click listener  bouton pour declencher action
+                    // dispatch exec
+                }
+
             }
-            // end for
         }
 
     }
