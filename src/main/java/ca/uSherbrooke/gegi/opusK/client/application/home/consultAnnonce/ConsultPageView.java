@@ -1,14 +1,15 @@
 package ca.uSherbrooke.gegi.opusK.client.application.home.consultAnnonce;
 
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
+import com.google.gwt.cell.client.ButtonCell;
 import com.google.gwt.dom.client.InputElement;
-import com.google.gwt.dom.client.TableElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.cellview.client.CellTable;
+import com.google.gwt.user.cellview.client.SimplePager;
+import com.google.gwt.user.client.ui.*;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
 import javax.inject.Inject;
@@ -27,7 +28,10 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     InputElement searchBar;
 
     @UiField
-    TableElement tableResult;
+    SimplePager pager;
+
+    @UiField
+    CellTable cellTable;
 
     @UiField
     ListBox listCat;
@@ -49,6 +53,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     @Override
     public void setServerResponse(List<Annonces_opusk> serverResponse, boolean vosAnnonces) {
 
+
         // Presenter les resultats dynamiquements
         if(serverResponse.size() == 0)
         {
@@ -58,11 +63,29 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         {
             // declare Tableau de i bouton qui auront en value l'id de l'annonce
 
+            Button tabsButton[] = new Button[serverResponse.size()];
+            ButtonCell tabsButtonCell[] = new ButtonCell[serverResponse.size()];
+
+
             for (int i = 0; i < serverResponse.size(); i++)
             {
-                // ... on construit les annonces
+
+
+                // voir Table cell
+
+
+              /*  TableRowElement tr = Document.get().createTRElement();
+                tableResult.appendChild(tr);
+              TableCellElement te = Document.get().createTDElement();
+                te.setInnerText(serverResponse.get(i).getTitre());
+              //  tr.appendChild(Document.get().createTDElement().setInnerText(serverResponse.get(i).getTitre()));
+
+                tr.appendChild(te);
+                */
                 //
                 if (vosAnnonces) {
+
+
                     // ajoute les options de management (colonne avec bouton statut)
                     // click listener  bouton pour declencher action
                     //getUiHandlers().statusChange(this.getId);
