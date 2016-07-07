@@ -112,6 +112,15 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
             }
         };
 
+        // Create date column.
+        TextColumn<Annonces_opusk> dateColumn = new TextColumn<Annonces_opusk>() {
+            @Override
+            public String getValue(Annonces_opusk annonces_opusk) {
+                return annonces_opusk.getDate_Creation().toString();
+            }
+
+        };
+
         // Make the name column sortable.
         categorieColumn.setSortable(true);
         prixColumn.setSortable(true);
@@ -165,13 +174,20 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         cellTable.addColumn(typeColumn,"Type");
         cellTable.addColumn(titreColumn,"Titre");
         cellTable.addColumn(categorieColumn, "Catégorie");
+
         cellTable.addColumn(prixColumn, "Prix");
+        cellTable.addColumn(dateColumn, "Crée le ");
 
         cellTable.addColumnSortHandler(columnSortHandler);
         cellTable.addColumnSortHandler(prixSortHandler);
         cellTable.addColumnSortHandler(typeSortHandler);
         // We know that the data is sorted alphabetically by default.
         cellTable.getColumnSortList().push(typeColumn);
+
+        if (vosAnnonces)
+        {
+
+        }
 
 
 
