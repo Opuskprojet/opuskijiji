@@ -59,6 +59,9 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     @Override
     public void setServerResponse(List<Annonces_opusk> serverResponse, boolean vosAnnonces) {
 
+        while (cellTable.getColumnCount() > 0) {
+            cellTable.removeColumn(0);
+        }
 
         // Presenter les resultats dynamiquements
         if(serverResponse.size() == 0)
@@ -67,19 +70,22 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         }
         else
         {
-            // declare Tableau de i bouton qui auront en value l'id de l'annonce
-
-            //ButtonCell tabsButtonCell[] = new ButtonCell[serverResponse.size()];
             onLoad(serverResponse, vosAnnonces);
-
-
-            }
         }
+    }
 
 
     public void onLoad(List<Annonces_opusk> serverResponse, boolean vosAnnonces)
     {
 
+        // Create type column.
+        TextColumn<Annonces_opusk> typeColumn = new TextColumn<Annonces_opusk>() {
+            @Override
+            public String getValue(Annonces_opusk annonces_opusk) {
+                return annonces_opusk.getType_Annonce();
+            }
+
+        };
 
         // Create titre column.
         TextColumn<Annonces_opusk> titreColumn = new TextColumn<Annonces_opusk>() {
@@ -109,6 +115,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         // Make the name column sortable.
         categorieColumn.setSortable(true);
         prixColumn.setSortable(true);
+        typeColumn.setSortable(true);
 
 
         // Create a data provider.
@@ -134,6 +141,18 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
                     }
                 });
 
+        // Add a ColumnSortEvent.ListHandler to connect sorting to the
+        // java.util.List.
+        ColumnSortEvent.ListHandler<Annonces_opusk> typeSortHandler = new ColumnSortEvent.ListHandler<Annonces_opusk>(
+                list);
+        columnSortHandler.setComparator(typeColumn,
+                new Comparator<Annonces_opusk>() {
+                    public int compare(Annonces_opusk a1, Annonces_opusk a2) {
+                        return a1.getType_Annonce().compareTo(a2.getType_Annonce());
+                    }
+                });
+
+
         ColumnSortEvent.ListHandler<Annonces_opusk> prixSortHandler = new ColumnSortEvent.ListHandler<Annonces_opusk>(
                 list);
         columnSortHandler.setComparator(prixColumn,
@@ -143,13 +162,16 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
                 }});
 
         // Add the columns.
+        cellTable.addColumn(typeColumn,"Type");
         cellTable.addColumn(titreColumn,"Titre");
         cellTable.addColumn(categorieColumn, "Catégorie");
         cellTable.addColumn(prixColumn, "Prix");
 
         cellTable.addColumnSortHandler(columnSortHandler);
+        cellTable.addColumnSortHandler(prixSortHandler);
+        cellTable.addColumnSortHandler(typeSortHandler);
         // We know that the data is sorted alphabetically by default.
-        cellTable.getColumnSortList().push(categorieColumn);
+        cellTable.getColumnSortList().push(typeColumn);
 
 
 

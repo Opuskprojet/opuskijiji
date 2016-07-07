@@ -17,8 +17,11 @@ import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * presenter pour consulter les annonces
@@ -26,8 +29,9 @@ import java.util.List;
  */
 public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView, ConsultPagePresenter.MyProxy> implements ConsultPageUiHandlers{
 
+
     @ProxyStandard
-    @NameToken(NameTokens.consult)
+    @NameToken({NameTokens.consult,NameTokens.vosAnnonces})
     interface MyProxy extends ProxyPlace<ConsultPagePresenter> {
     }
 
@@ -49,6 +53,18 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
         super(eventBus, view, proxy, HomePagePresenter.SLOT_MAIN_CONTENT);
         this.dispatcher = dispatcher;
         getView().setUiHandlers(this);
+    }
+
+
+    @Override
+    public void prepareFromRequest(PlaceRequest request) {
+        super.prepareFromRequest(request);
+
+        if(request.getNameToken() =="/vosAnnonces")
+        {
+            sendSearch("", "", true);
+        }
+
     }
 
     @Override

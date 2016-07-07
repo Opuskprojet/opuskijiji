@@ -24,7 +24,7 @@
                 <a href="#{nameTokens.getChat}">Messages</a>
             </li>
             <li>
-                <a href="#{nameTokens.getConsult}">Vos Annonces</a>
+                <a href="#{nameTokens.getVosAnnonces}">Vos Annonces</a>
             </li>
         </ul>
     </g:HTMLPanel>

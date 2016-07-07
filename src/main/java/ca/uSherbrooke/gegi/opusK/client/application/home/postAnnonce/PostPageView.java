@@ -1,5 +1,6 @@
 package ca.uSherbrooke.gegi.opusK.client.application.home.postAnnonce;
 
+import ca.uSherbrooke.gegi.opusK.client.place.NameTokens;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -9,12 +10,15 @@ import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.ui.IntegerBox;
 import com.google.gwt.user.client.ui.ListBox;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
+import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 import org.gwtbootstrap3.client.ui.*;
 import org.gwtbootstrap3.client.ui.CheckBox;
 import org.gwtbootstrap3.client.ui.DoubleBox;
 import org.gwtbootstrap3.client.ui.TextArea;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.client.ui.gwt.FlowPanel;
+import org.gwtbootstrap3.extras.notify.client.constants.NotifyType;
+import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 
 import javax.inject.Inject;
 import java.util.Arrays;
@@ -40,8 +44,7 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     private CheckBox checkjardin = new CheckBox();
     private DoubleBox surface = new DoubleBox();
 
-    @UiField
-    HTML serverResponse;
+
 
     @UiField
     ListBox listType;
@@ -212,6 +215,8 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 isbn.getText(),auteur.getText());
 
         getUiHandlers().sendForm(datas);
+
+
     }
 
     @Inject
@@ -221,7 +226,13 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
 
     @Override
     public void setServerResponse(String serverResponse) {
-        this.serverResponse.setHTML(serverResponse);
+
+        Notify.notify(serverResponse, NotifyType.SUCCESS);
+        PlaceRequest placeRequest = new PlaceRequest.Builder()
+                .nameToken(NameTokens.getHome())
+                .build();
+
+        //placeManager.revealPlace(placeRequest);
     }
 
 

@@ -81,16 +81,21 @@
 
                     <!-- http://stackoverflow.com/questions/7182173/how-to-use-gwt-fileupload -->
 
-                    <b:Modal title="Conditions d'utilisation" closable="true" fade="true" dataBackdrop="STATIC" dataKeyboard="true" >
+                    <b:Modal title="Conditions d'utilisation" closable="true" fade="true" dataBackdrop="STATIC" dataKeyboard="true" b:id="myModal">
                         <b:ModalBody>
                             <g:HTML>Conditions d'utilisation</g:HTML>
                         </b:ModalBody>
                         <b:ModalFooter>
-                            <b:Button type="PRIMARY">Accepter</b:Button>
                             <b:Button type="DANGER" dataDismiss="MODAL">Fermer</b:Button>
                         </b:ModalFooter>
                     </b:Modal>
                     <b:Button dataTarget="#myModal" dataToggle="MODAL" type="PRIMARY" size="SMALL" addStyleNames="col-lg-offset-4">Conditions d'utilisation</b:Button>
+
+
+
+
+
+
 
                     <b:FormGroup>
 
@@ -103,7 +108,7 @@
             </b:Form>
         </div>
 
-        <g:HTML ui:field="serverResponse"/>
+        <g:PopupPanel ui:field="monPanel"/>
 
 
     </g:HTMLPanel>
