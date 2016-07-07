@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 /**
+ * Vue pour consulter les andnonces
  * Created by tanguy on 31/05/16.
  */
 public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> implements ConsultPagePresenter.MyView {
@@ -63,7 +64,6 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         {
             // declare Tableau de i bouton qui auront en value l'id de l'annonce
 
-            Button tabsButton[] = new Button[serverResponse.size()];
             ButtonCell tabsButtonCell[] = new ButtonCell[serverResponse.size()];
 
 
@@ -73,15 +73,6 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
 
                 // voir Table cell
 
-
-              /*  TableRowElement tr = Document.get().createTRElement();
-                tableResult.appendChild(tr);
-              TableCellElement te = Document.get().createTDElement();
-                te.setInnerText(serverResponse.get(i).getTitre());
-              //  tr.appendChild(Document.get().createTDElement().setInnerText(serverResponse.get(i).getTitre()));
-
-                tr.appendChild(te);
-                */
                 //
                 if (vosAnnonces) {
 

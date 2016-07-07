@@ -2,9 +2,7 @@ package ca.uSherbrooke.gegi.opusK.client.application.home.consultAnnonce;
 
 import ca.uSherbrooke.gegi.opusK.client.application.home.HomePagePresenter;
 import ca.uSherbrooke.gegi.opusK.client.place.NameTokens;
-import ca.uSherbrooke.gegi.opusK.shared.dispatch.RecupFormResult;
-import ca.uSherbrooke.gegi.opusK.shared.dispatch.SearchAction;
-import ca.uSherbrooke.gegi.opusK.shared.dispatch.SearchResult;
+import ca.uSherbrooke.gegi.opusK.shared.dispatch.*;
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
@@ -71,6 +69,24 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
 
     }
 
+    @Override
+    public void statusChange(String idAnnonce) {
+
+        StatusChangeAction action = new StatusChangeAction(idAnnonce);
+
+        dispatcher.execute(action, new AsyncCallback<StatusChangeResult>() {
+            @Override
+            public void onFailure(Throwable throwable) {
+                getView().setServerError("Erreur " + throwable.getMessage());
+
+            }
+
+            @Override
+            public void onSuccess(StatusChangeResult searchResult) {
+                // refresh page : sendSearch(query,cat,true);
+            }
+        });
+    }
 
 
 }

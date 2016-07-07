@@ -106,8 +106,6 @@
         <g:HTML ui:field="serverResponse"/>
 
 
-
-
     </g:HTMLPanel>
 
 </ui:UiBinder>

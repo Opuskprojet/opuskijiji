@@ -61,7 +61,7 @@ public class SearchHandler implements ActionHandler<SearchAction,SearchResult> {
 
         }
 
-        logger.log(Level.INFO,"nb annonces trouvée : " + results.size());
+        logger.log(Level.INFO,"nombres d'annonces trouvées : " + results.size());
 
         em.close();
         emf.close();
