@@ -2,7 +2,10 @@ package ca.uSherbrooke.gegi.opusK.client.application.home.consultAnnonce;
 
 import ca.uSherbrooke.gegi.opusK.client.application.home.HomePagePresenter;
 import ca.uSherbrooke.gegi.opusK.client.place.NameTokens;
-import ca.uSherbrooke.gegi.opusK.shared.dispatch.*;
+import ca.uSherbrooke.gegi.opusK.shared.dispatch.SearchAction;
+import ca.uSherbrooke.gegi.opusK.shared.dispatch.SearchResult;
+import ca.uSherbrooke.gegi.opusK.shared.dispatch.StatusChangeAction;
+import ca.uSherbrooke.gegi.opusK.shared.dispatch.StatusChangeResult;
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
@@ -13,13 +16,12 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
-import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
-import com.gwtplatform.mvp.client.proxy.Proxy;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import java.util.List;
 
 /**
+ * presenter pour consulter les annonces
  * Created by tanguy on 31/05/16.
  */
 public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView, ConsultPagePresenter.MyProxy> implements ConsultPageUiHandlers{

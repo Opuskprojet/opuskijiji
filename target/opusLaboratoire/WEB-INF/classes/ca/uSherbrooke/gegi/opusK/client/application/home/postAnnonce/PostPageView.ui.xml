@@ -26,10 +26,10 @@
                     <b:FormGroup>
                         <b:FormLabel for="formType" addStyleNames="col-lg-4">Type d'annonce</b:FormLabel>
                         <g:FlowPanel addStyleNames="col-lg-5">
-                            <b:ListBox ui:field="listType" b:id="formType">
-                                <g:item>Vente</g:item>
-                                <g:item>Don</g:item>
-                                <g:item>Location</g:item>
+                            <b:ListBox ui:field="listType">
+                                <item>Vente</item>
+                                <item>Don</item>
+                                <item>Location</item>
                             </b:ListBox>
                         </g:FlowPanel>
                     </b:FormGroup>
@@ -37,20 +37,20 @@
                     <b:FormGroup>
                         <b:FormLabel for="formName" addStyleNames="col-lg-4">Titre de l'annonce</b:FormLabel>
                         <g:FlowPanel addStyleNames="col-lg-5">
-                            <b:TextBox ui:field="titreAnnonce" placeholder="Clair et Concis" b:id="formName"/>
+                            <b:TextBox ui:field="titreAnnonce" placeholder="Clair et Concis" />
                         </g:FlowPanel>
                     </b:FormGroup>
 
                     <b:FormGroup>
                         <b:FormLabel for="formCategorie" addStyleNames="col-lg-4">Catégorie</b:FormLabel>
                         <g:FlowPanel addStyleNames="col-lg-5">
-                            <b:ListBox ui:field="listCat" b:id="formCategorie">
-                                <g:item> </g:item>
-                                <g:item>Informatique</g:item>
-                                <g:item>Multimédia</g:item>
-                                <g:item>Immobilier</g:item>
-                                <g:item>Articles de maison</g:item>
-                                <g:item>Livres</g:item>
+                            <b:ListBox ui:field="listCat">
+                                <item> </item>
+                                <item>Informatique</item>
+                                <item>Multimédia</item>
+                                <item>Immobilier</item>
+                                <item>Articles de maison</item>
+                                <item>Livres</item>
                             </b:ListBox>
                         </g:FlowPanel>
                     </b:FormGroup>
@@ -68,7 +68,7 @@
                     <b:FormGroup>
                         <b:FormLabel for="formName" addStyleNames="col-lg-4">Prix</b:FormLabel>
                         <g:FlowPanel addStyleNames="col-lg-2">
-                            <b:DoubleBox ui:field="prix" placeholder="10,00 $CAD" b:id="formName"/>
+                            <b:DoubleBox ui:field="prix" placeholder="10,00 $CAD" />
                         </g:FlowPanel>
                     </b:FormGroup>
 
@@ -81,7 +81,7 @@
 
                     <!-- http://stackoverflow.com/questions/7182173/how-to-use-gwt-fileupload -->
 
-                    <b:Modal title="Conditions d'utilisation" closable="true" fade="true" dataBackdrop="STATIC" dataKeyboard="true" b:id="myModal">
+                    <b:Modal title="Conditions d'utilisation" closable="true" fade="true" dataBackdrop="STATIC" dataKeyboard="true" >
                         <b:ModalBody>
                             <g:HTML>Conditions d'utilisation</g:HTML>
                         </b:ModalBody>
@@ -104,8 +104,6 @@
         </div>
 
         <g:HTML ui:field="serverResponse"/>
-
-
 
 
     </g:HTMLPanel>

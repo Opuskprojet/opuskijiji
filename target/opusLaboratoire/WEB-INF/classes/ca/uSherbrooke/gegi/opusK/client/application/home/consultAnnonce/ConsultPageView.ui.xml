@@ -4,9 +4,16 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:c="urn:import:com.google.gwt.user.cellview.client">
 
-    <g:HTMLPanel>
+    <ui:style>
+        .cellTable {
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+            margin-bottom: 4px;
+        }
+    </ui:style>
 
-        <div class="navbar"></div>
+
+    <g:HTMLPanel>
 
         <!--Search bar-->
         <div class="container">
@@ -15,13 +22,13 @@
                         <input ui:field="searchBar" type="text" class="form-control" placeholder="Rechercher" />
 
                         <div class="input-group-btn">
-                            <b:ListBox ui:field="listCat" b:id="formCategorie">
-                                <g:item>All</g:item>
-                                <g:item>Informatique</g:item>
-                                <g:item>Multimédia</g:item>
-                                <g:item>Immobilier</g:item>
-                                <g:item>Articles de maison</g:item>
-                                <g:item>Livres</g:item>
+                            <b:ListBox ui:field="listCat" >
+                                <item>All</item>
+                                <item>Informatique</item>
+                                <item>Multimédia</item>
+                                <item>Immobilier</item>
+                                <item>Articles de maison</item>
+                                <item>Livres</item>
                             </b:ListBox>
                             <div class="btn-group" role="group">
                                 <b:Button ui:field="submitButton">Envoyer</b:Button>
@@ -33,13 +40,6 @@
 
 
         <!-- ******************************* -->
-        <ui:style>
-            .cellTable {
-                border-bottom: 1px solid #ccc;
-                text-align: left;
-                margin-bottom: 4px;
-            }
-        </ui:style>
 
         <g:HTMLPanel>
             <table cellspacing='0' cellpadding='0' style='width:100%;'>

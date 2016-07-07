@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * Vue pour poster des annonces
  * Created by tanguy on 31/05/16.
  */
 public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implements PostPagePresenter.MyView {

@@ -18,6 +18,7 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import java.util.List;
 
 /**
+ * Presenter pour  poster les annonces
  * Created by tanguy on 31/05/16.
  */
 public class PostPagePresenter extends Presenter<PostPagePresenter.MyView, PostPagePresenter.MyProxy> implements PostPageUiHandlers{
