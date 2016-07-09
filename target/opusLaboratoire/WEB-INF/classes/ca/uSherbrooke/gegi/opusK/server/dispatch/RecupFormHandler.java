@@ -37,10 +37,6 @@ public class RecupFormHandler implements ActionHandler<RecupFormAction,RecupForm
     public RecupFormResult execute(RecupFormAction action, ExecutionContext executionContext) throws ActionException {
 
 
-       // EntityManagerFactory emf = Persistence.createEntityManagerFactory("opusLaboratoire");
-        //EntityManager em = emf.createEntityManager();
-
-
         List<String> datas = action.getDatas();
 
         Annonces_opusk annonce = new Annonces_opusk();
@@ -62,16 +58,6 @@ public class RecupFormHandler implements ActionHandler<RecupFormAction,RecupForm
         annonce.setAuteur(datas.get(13));
         annonce.setStatut(true);
 
-
-       // em.getTransaction().begin();
-
-
-       // em.persist(annonce); /* (exception thrown here) */
-
-       // em.getTransaction().commit();
-
-        //em.close();
-        //emf.close();
 
         myDao.persist(annonce);
 

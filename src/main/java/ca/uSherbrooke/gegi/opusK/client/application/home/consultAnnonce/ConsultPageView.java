@@ -2,16 +2,16 @@ package ca.uSherbrooke.gegi.opusK.client.application.home.consultAnnonce;
 
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
 import com.google.gwt.cell.client.ButtonCell;
+import com.google.gwt.cell.client.ImageResourceCell;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.resources.client.ClientBundle;
+import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.cellview.client.CellTable;
-import com.google.gwt.user.cellview.client.ColumnSortEvent;
-import com.google.gwt.user.cellview.client.SimplePager;
-import com.google.gwt.user.cellview.client.TextColumn;
+import com.google.gwt.user.cellview.client.*;
 import com.google.gwt.user.client.ui.*;
 import com.google.gwt.view.client.ListDataProvider;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
@@ -26,6 +26,13 @@ import java.util.List;
  */
 public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> implements ConsultPagePresenter.MyView {
 
+    interface Resources extends ClientBundle {
+        @Source("no-image.png")
+        ImageResource getDefaultPhoto();
+
+       Resources INSTANCE = GWT.create(Resources.class);
+
+    }
 
     interface Binder extends UiBinder<Widget, ConsultPageView> {
     }
@@ -78,6 +85,14 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     public void onLoad(List<Annonces_opusk> serverResponse, boolean vosAnnonces)
     {
 
+        Column<Annonces_opusk, ImageResource> photoCol = new Column<Annonces_opusk, ImageResource>(new ImageResourceCell()) {
+            @Override
+            public ImageResource getValue(Annonces_opusk annonces_opusk) {
+                return Resources.INSTANCE.getDefaultPhoto();
+            }
+        };
+
+
         // Create type column.
         TextColumn<Annonces_opusk> typeColumn = new TextColumn<Annonces_opusk>() {
             @Override
@@ -108,7 +123,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         TextColumn<Annonces_opusk> prixColumn = new TextColumn<Annonces_opusk>() {
             @Override
             public String getValue(Annonces_opusk annonces_opusk) {
-                return String.valueOf(annonces_opusk.getPrix());
+                return String.valueOf(annonces_opusk.getPrix() + " $");
             }
         };
 
@@ -135,8 +150,8 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         // Add the data to the data provider, which automatically pushes it to the
         // widget.
         List<Annonces_opusk> list = dataProvider.getList();
-        for (Annonces_opusk contact : serverResponse) {
-            list.add(contact);
+        for (Annonces_opusk annonce : serverResponse) {
+            list.add(annonce);
         }
 
         // Add a ColumnSortEvent.ListHandler to connect sorting to the
@@ -171,6 +186,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
                 }});
 
         // Add the columns.
+        cellTable.addColumn(photoCol,"Photo");
         cellTable.addColumn(typeColumn,"Type");
         cellTable.addColumn(titreColumn,"Titre");
         cellTable.addColumn(categorieColumn, "Catégorie");
