@@ -20,7 +20,7 @@ public class StatusChangeHandler implements ActionHandler<StatusChangeAction,Sta
     @Override
     public StatusChangeResult execute(StatusChangeAction action, ExecutionContext executionContext) throws ActionException {
 
-        String annonceId = action.getAnnonceId();
+        int annonceId = action.getAnnonceId();
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("opusLaboratoire");
         EntityManager em = emf.createEntityManager();

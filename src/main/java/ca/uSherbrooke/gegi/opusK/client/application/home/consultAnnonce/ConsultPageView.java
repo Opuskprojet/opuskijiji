@@ -1,9 +1,9 @@
 package ca.uSherbrooke.gegi.opusK.client.application.home.consultAnnonce;
 
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
-import com.google.gwt.cell.client.ButtonCell;
 import com.google.gwt.cell.client.ImageResourceCell;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.BrowserEvents;
 import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.resources.client.ClientBundle;
@@ -12,9 +12,14 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.cellview.client.*;
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.view.client.CellPreviewEvent;
 import com.google.gwt.view.client.ListDataProvider;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
+import org.gwtbootstrap3.extras.notify.client.constants.NotifyType;
+import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 
 import javax.inject.Inject;
 import java.util.Comparator;
@@ -29,6 +34,12 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     interface Resources extends ClientBundle {
         @Source("no-image.png")
         ImageResource getDefaultPhoto();
+
+        @Source("green.png")
+        ImageResource getGreen();
+
+        @Source("red.png")
+        ImageResource getRed();
 
        Resources INSTANCE = GWT.create(Resources.class);
 
@@ -49,6 +60,8 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     @UiField
     ListBox listCat;
 
+    private boolean exec = false;
+
     @UiHandler("submitButton")
     void onSend(ClickEvent event) {
         String query = searchBar.getValue().trim();
@@ -66,14 +79,15 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     @Override
     public void setServerResponse(List<Annonces_opusk> serverResponse, boolean vosAnnonces) {
 
+
         while (cellTable.getColumnCount() > 0) {
             cellTable.removeColumn(0);
         }
 
-        // Presenter les resultats dynamiquements
+
         if(serverResponse.size() == 0)
         {
-            //  affiche text "aucun resultat"
+            Notify.notify("Aucune annonce trouvée :( !", NotifyType.INFO);
         }
         else
         {
@@ -82,7 +96,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
     }
 
 
-    public void onLoad(List<Annonces_opusk> serverResponse, boolean vosAnnonces)
+    private void onLoad(List<Annonces_opusk> serverResponse, boolean vosAnnonces)
     {
 
         Column<Annonces_opusk, ImageResource> photoCol = new Column<Annonces_opusk, ImageResource>(new ImageResourceCell()) {
@@ -91,7 +105,6 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
                 return Resources.INSTANCE.getDefaultPhoto();
             }
         };
-
 
         // Create type column.
         TextColumn<Annonces_opusk> typeColumn = new TextColumn<Annonces_opusk>() {
@@ -156,7 +169,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
 
         // Add a ColumnSortEvent.ListHandler to connect sorting to the
         // java.util.List.
-        ColumnSortEvent.ListHandler<Annonces_opusk> columnSortHandler = new ColumnSortEvent.ListHandler<Annonces_opusk>(
+        ColumnSortEvent.ListHandler<Annonces_opusk> columnSortHandler = new ColumnSortEvent.ListHandler<>(
                 list);
         columnSortHandler.setComparator(categorieColumn,
                 new Comparator<Annonces_opusk>() {
@@ -167,7 +180,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
 
         // Add a ColumnSortEvent.ListHandler to connect sorting to the
         // java.util.List.
-        ColumnSortEvent.ListHandler<Annonces_opusk> typeSortHandler = new ColumnSortEvent.ListHandler<Annonces_opusk>(
+        ColumnSortEvent.ListHandler<Annonces_opusk> typeSortHandler = new ColumnSortEvent.ListHandler<>(
                 list);
         columnSortHandler.setComparator(typeColumn,
                 new Comparator<Annonces_opusk>() {
@@ -177,7 +190,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
                 });
 
 
-        ColumnSortEvent.ListHandler<Annonces_opusk> prixSortHandler = new ColumnSortEvent.ListHandler<Annonces_opusk>(
+        ColumnSortEvent.ListHandler<Annonces_opusk> prixSortHandler = new ColumnSortEvent.ListHandler<>(
                 list);
         columnSortHandler.setComparator(prixColumn,
                 new Comparator<Annonces_opusk>() {
@@ -194,18 +207,59 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         cellTable.addColumn(prixColumn, "Prix");
         cellTable.addColumn(dateColumn, "Crée le ");
 
+        if (vosAnnonces)
+        {
+            // Create date column.
+            TextColumn<Annonces_opusk> dateExpColumn = new TextColumn<Annonces_opusk>() {
+                @Override
+                public String getValue(Annonces_opusk annonces_opusk) {
+                    return annonces_opusk.getDate_Expiration().toString();
+                }
+
+            };
+
+            Column<Annonces_opusk, ImageResource> photoStatut = new Column<Annonces_opusk, ImageResource>(new ImageResourceCell()) {
+                @Override
+                public ImageResource getValue(Annonces_opusk annonces_opusk) {
+                    if(annonces_opusk.getStatut())
+                        return Resources.INSTANCE.getGreen();
+                    return Resources.INSTANCE.getRed();
+                }
+
+            };
+
+            cellTable.addColumn(dateExpColumn, "Date Expiration");
+            cellTable.addColumn(photoStatut, "Statut");
+        }
+
         cellTable.addColumnSortHandler(columnSortHandler);
         cellTable.addColumnSortHandler(prixSortHandler);
         cellTable.addColumnSortHandler(typeSortHandler);
         // We know that the data is sorted alphabetically by default.
         cellTable.getColumnSortList().push(typeColumn);
 
-        if (vosAnnonces)
-        {
+        if(!exec) {
+            cellTable.addCellPreviewHandler(new CellPreviewEvent.Handler<Annonces_opusk>() {
+                @Override
+                public void onCellPreview(CellPreviewEvent<Annonces_opusk> event) {
+                    boolean isClick = BrowserEvents.CLICK.equals(event.getNativeEvent().getType());
 
+                    if (isClick) {
+                        if(event.getColumn() == 7)
+                        {
+                            getUiHandlers().statusChange(event.getValue().getId());
+                        }
+                        else
+                        {
+                            String id = "l'id vaut : " + event.getValue().getId() +" redirection vers page produit";
+                            Notify.notify(id, NotifyType.SUCCESS);
+                        }
+
+                    }
+                }
+            });
+            exec = true;
         }
-
-
 
         pager.setDisplay(cellTable);
     }

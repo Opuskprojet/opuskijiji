@@ -8,9 +8,9 @@ import com.gwtplatform.dispatch.rpc.shared.UnsecuredActionImpl;
 public class StatusChangeAction extends UnsecuredActionImpl<StatusChangeResult> {
 
 
-    private String annonceId;
+    private int annonceId;
 
-    public StatusChangeAction(String datas)
+    public StatusChangeAction(int annonceId)
     {
         this.annonceId = annonceId;
     }
@@ -22,7 +22,7 @@ public class StatusChangeAction extends UnsecuredActionImpl<StatusChangeResult> 
     private StatusChangeAction() {
     }
 
-    public String getAnnonceId()
+    public int getAnnonceId()
     {
         return annonceId;
     }

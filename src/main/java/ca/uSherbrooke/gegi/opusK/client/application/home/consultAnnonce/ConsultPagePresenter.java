@@ -18,6 +18,8 @@ import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
+import org.gwtbootstrap3.extras.notify.client.constants.NotifyType;
+import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -64,6 +66,10 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
         {
             sendSearch("", "", true);
         }
+        if(request.getNameToken() == "/consult")
+        {
+            sendSearch("","",false);
+        }
 
     }
 
@@ -88,7 +94,7 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
     }
 
     @Override
-    public void statusChange(String idAnnonce) {
+    public void statusChange(int idAnnonce) {
 
         StatusChangeAction action = new StatusChangeAction(idAnnonce);
 
@@ -101,7 +107,7 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
 
             @Override
             public void onSuccess(StatusChangeResult searchResult) {
-                // refresh page : sendSearch(query,cat,true);
+                Notify.notify(searchResult.getResponse(), NotifyType.SUCCESS);
             }
         });
     }
