@@ -12,6 +12,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
+ * handler changement du statut d'une annonce
  * Created by tanguy on 25/06/16.
  */
 public class StatusChangeHandler implements ActionHandler<StatusChangeAction,StatusChangeResult> {
@@ -44,9 +45,10 @@ public class StatusChangeHandler implements ActionHandler<StatusChangeAction,Sta
     }
 
     @Override
-    public Class getActionType() {
+    public Class<StatusChangeAction> getActionType() {
         return null;
     }
+
 
     @Override
     public void undo(StatusChangeAction statusChangeAction, StatusChangeResult statusChangeResult, ExecutionContext executionContext) throws ActionException {

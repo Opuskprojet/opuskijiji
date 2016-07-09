@@ -11,19 +11,13 @@ import com.gwtplatform.dispatch.rpc.server.ExecutionContext;
 import com.gwtplatform.dispatch.rpc.server.actionhandler.ActionHandler;
 import com.gwtplatform.dispatch.shared.ActionException;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
+ * handler poste l'annonce sur le serv
  * Created by tanguy on 09/06/16.
  */
 public class RecupFormHandler implements ActionHandler<RecupFormAction,RecupFormResult>{
-
-    static private Logger logger = Logger.getLogger("RecupFormHandler");
 
 
     @Inject

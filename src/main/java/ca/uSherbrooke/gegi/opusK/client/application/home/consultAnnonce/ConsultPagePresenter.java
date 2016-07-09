@@ -62,11 +62,11 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
     public void prepareFromRequest(PlaceRequest request) {
         super.prepareFromRequest(request);
 
-        if(request.getNameToken() =="/vosAnnonces")
+        if(request.getNameToken().equals("/vosAnnonces"))
         {
             sendSearch("", "", true);
         }
-        if(request.getNameToken() == "/consult")
+        if(request.getNameToken().equals("/consult"))
         {
             sendSearch("","",false);
         }
