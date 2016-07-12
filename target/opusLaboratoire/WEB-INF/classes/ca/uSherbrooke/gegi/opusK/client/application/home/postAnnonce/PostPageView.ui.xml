@@ -108,9 +108,6 @@
             </b:Form>
         </div>
 
-        <g:PopupPanel ui:field="monPanel"/>
-
-
     </g:HTMLPanel>
 
 </ui:UiBinder>
