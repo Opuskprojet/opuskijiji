@@ -10,14 +10,21 @@
             text-align: left;
             margin-bottom: 4px;
         }
+
     </ui:style>
 
 
-    <g:HTMLPanel>
-
+    <g:HTMLPanel >
+        <style>
+            .container{
+            margin-top: 40px;
+            margin-bottom: 50px;
+            float: none;
+            }
+        </style>
         <!--Search bar-->
-        <div class="container">
-                <div class="col-md-12">
+        <div class="container" >
+                <div class="col-sm-4 col-sm-offset-4">
                     <div class="input-group" id="adv-search">
                         <input ui:field="searchBar" type="text" class="form-control" placeholder="Rechercher" />
 
@@ -41,10 +48,17 @@
 
         <!-- ******************************* -->
 
-        <g:HTMLPanel>
-            <table cellspacing='0' cellpadding='0' style='width:100%;'>
+        <g:HTMLPanel >
+            <style>
+                .col-centered{
+                float: none;
+                margin: 0 auto;
+                }
+            </style>
+
+            <table  class="col-centered" cellspacing='0' cellpadding='0'>
                 <tr>
-                    <td valign='top'>
+                    <td valign='top' >
                         <c:CellTable
                                 addStyleNames='{style.cellTable}'
                                 pageSize='15'
@@ -52,8 +66,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align='center'>
-                        <c:SimplePager ui:field='pager'  location='CENTER'/>
+                    <td  >
+                        <c:SimplePager ui:field='pager'  location='CENTER' addStyleNames="col-sm-4 col-sm-offset-4"/>
                     </td>
                 </tr>
             </table>

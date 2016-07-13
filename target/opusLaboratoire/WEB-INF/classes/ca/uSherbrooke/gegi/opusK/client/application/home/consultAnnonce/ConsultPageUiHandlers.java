@@ -8,4 +8,5 @@ import com.gwtplatform.mvp.client.UiHandlers;
 public interface ConsultPageUiHandlers extends UiHandlers {
     void sendSearch(String query, String categorie, boolean vosAnnonces);
     void statusChange(int idAnnonce);
+    void displayAnnonce(int id);
 }

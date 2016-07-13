@@ -10,6 +10,7 @@ import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
 import com.gwtplatform.mvp.client.proxy.Proxy;
+import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 /**
  * Created by tanguy on 02/06/16.
@@ -33,4 +34,9 @@ public class ProductPagePresenter extends Presenter<ProductPagePresenter.MyView,
 
     }
 
+    @Override
+    public void prepareFromRequest(PlaceRequest request) {
+        String id = request.getParameter("id", "0");
+        //action(id)
+    }
 }

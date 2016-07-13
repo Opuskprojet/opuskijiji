@@ -252,6 +252,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
                         {
                             String id = "l'id vaut : " + event.getValue().getId() +" redirection vers page produit";
                             Notify.notify(id, NotifyType.SUCCESS);
+                            getUiHandlers().displayAnnonce(event.getValue().getId());
                         }
 
                     }

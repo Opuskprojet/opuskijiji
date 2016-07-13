@@ -2,6 +2,7 @@ package ca.uSherbrooke.gegi.opusK.client.application.home.consultAnnonce;
 
 import ca.uSherbrooke.gegi.opusK.client.application.home.HomePagePresenter;
 import ca.uSherbrooke.gegi.opusK.client.place.NameTokens;
+import ca.uSherbrooke.gegi.opusK.client.place.ParameterTokens;
 import ca.uSherbrooke.gegi.opusK.shared.dispatch.SearchAction;
 import ca.uSherbrooke.gegi.opusK.shared.dispatch.SearchResult;
 import ca.uSherbrooke.gegi.opusK.shared.dispatch.StatusChangeAction;
@@ -16,6 +17,7 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
+import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 import org.gwtbootstrap3.extras.notify.client.constants.NotifyType;
@@ -45,15 +47,18 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
 
 
     private final DispatchAsync dispatcher;
+    private final PlaceManager placeManager;
 
     @Inject
     ConsultPagePresenter(
             EventBus eventBus,
             MyView view,
             MyProxy proxy,
-            DispatchAsync dispatcher) {
+            DispatchAsync dispatcher,
+            PlaceManager placeManager) {
         super(eventBus, view, proxy, HomePagePresenter.SLOT_MAIN_CONTENT);
         this.dispatcher = dispatcher;
+        this.placeManager = placeManager;
         getView().setUiHandlers(this);
     }
 
@@ -112,5 +117,14 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
         });
     }
 
+    @Override
+    public void displayAnnonce(int id)
+    {
+        PlaceRequest placeRequest = new PlaceRequest.Builder()
+                .nameToken(NameTokens.getProduct())
+                .with(ParameterTokens.ID, String.valueOf(id))
+                .build();
 
+        placeManager.revealPlace(placeRequest);
+    }
 }
