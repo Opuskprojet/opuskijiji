@@ -2,7 +2,6 @@ package ca.uSherbrooke.gegi.opusK.server.dispatch;
 
 import ca.uSherbrooke.gegi.opusK.shared.dispatch.ProductAction;
 import ca.uSherbrooke.gegi.opusK.shared.dispatch.ProductResult;
-import ca.uSherbrooke.gegi.opusK.shared.dispatch.StatusChangeResult;
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
 import com.gwtplatform.dispatch.rpc.server.ExecutionContext;
 import com.gwtplatform.dispatch.rpc.server.actionhandler.ActionHandler;

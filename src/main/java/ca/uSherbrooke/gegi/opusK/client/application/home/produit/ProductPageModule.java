@@ -4,7 +4,7 @@ import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
 
 /**
- * Created by tanguy on 02/06/16.
+ * Created by tanguy on 02/06/16
  */
 public class ProductPageModule extends AbstractPresenterModule {
     @Override
