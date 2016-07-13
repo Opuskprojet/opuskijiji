@@ -13,7 +13,9 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
+import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 import java.util.List;
 
@@ -35,16 +37,16 @@ public class PostPagePresenter extends Presenter<PostPagePresenter.MyView, PostP
     }
 
     private final DispatchAsync dispatcher;
-
-
+    private final PlaceManager placeManager;
 
     @Inject
     PostPagePresenter(
             EventBus eventBus,
             MyView view,
-            MyProxy proxy, DispatchAsync dispatcher) {
+            MyProxy proxy, DispatchAsync dispatcher, PlaceManager placeManager) {
         super(eventBus, view, proxy, HomePagePresenter.SLOT_MAIN_CONTENT);
         this.dispatcher = dispatcher;
+        this.placeManager = placeManager;
 
         getView().setUiHandlers(this);
 
@@ -67,6 +69,15 @@ public class PostPagePresenter extends Presenter<PostPagePresenter.MyView, PostP
                 getView().setServerResponse(recupFormResult.getResponse());
             }
         });
+    }
+
+    @Override
+    public void loadConsultPage() {
+        PlaceRequest placeRequest = new PlaceRequest.Builder()
+                .nameToken(NameTokens.getConsult())
+                .build();
+
+        placeManager.revealPlace(placeRequest);
     }
 
 }

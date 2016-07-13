@@ -6,7 +6,7 @@ import com.gwtplatform.dispatch.rpc.shared.Result;
 import java.util.List;
 
 /**
- * Created by tanguy on 10/06/16.
+ * Created by tanguy on 10/06/16
  */
 
 public class SearchResult implements Result {

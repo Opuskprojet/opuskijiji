@@ -228,11 +228,7 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     public void setServerResponse(String serverResponse) {
 
         Notify.notify(serverResponse, NotifyType.SUCCESS);
-        //PlaceRequest placeRequest = new PlaceRequest.Builder()
-         //       .nameToken(NameTokens.getHome())
-           //     .build();
-
-        //placeManager.revealPlace(placeRequest);
+        getUiHandlers().loadConsultPage();
     }
 
 
