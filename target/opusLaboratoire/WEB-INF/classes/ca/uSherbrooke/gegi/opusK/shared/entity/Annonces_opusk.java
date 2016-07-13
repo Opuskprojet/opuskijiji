@@ -33,7 +33,6 @@ public class Annonces_opusk  implements Serializable {
     @SequenceGenerator(name = "opusk.annonce_id_annonce_seq", sequenceName = "opusk.annonce_id_annonce_seq", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "opusk.annonce_id_annonce_seq")
     private Integer id;
-
     private String cip;
     private String titre;
     private String description;

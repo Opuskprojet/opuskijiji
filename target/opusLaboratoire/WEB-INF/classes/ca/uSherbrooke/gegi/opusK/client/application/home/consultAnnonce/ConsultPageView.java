@@ -235,7 +235,7 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
         cellTable.addColumnSortHandler(prixSortHandler);
         cellTable.addColumnSortHandler(typeSortHandler);
         // We know that the data is sorted alphabetically by default.
-        cellTable.getColumnSortList().push(typeColumn);
+        cellTable.getColumnSortList().push(prixColumn);
 
         if(!exec) {
             cellTable.addCellPreviewHandler(new CellPreviewEvent.Handler<Annonces_opusk>() {
@@ -250,8 +250,6 @@ public class ConsultPageView extends ViewWithUiHandlers<ConsultPagePresenter> im
                         }
                         else
                         {
-                            String id = "l'id vaut : " + event.getValue().getId() +" redirection vers page produit";
-                            Notify.notify(id, NotifyType.SUCCESS);
                             getUiHandlers().displayAnnonce(event.getValue().getId());
                         }
 

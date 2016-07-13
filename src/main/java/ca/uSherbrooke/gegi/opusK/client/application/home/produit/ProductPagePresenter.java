@@ -2,6 +2,7 @@ package ca.uSherbrooke.gegi.opusK.client.application.home.produit;
 
 import ca.uSherbrooke.gegi.opusK.client.application.home.HomePagePresenter;
 import ca.uSherbrooke.gegi.opusK.client.place.NameTokens;
+import ca.uSherbrooke.gegi.opusK.client.place.ParameterTokens;
 import ca.uSherbrooke.gegi.opusK.shared.dispatch.*;
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -49,7 +50,7 @@ public class ProductPagePresenter extends Presenter<ProductPagePresenter.MyView,
 
     @Override
     public void prepareFromRequest(PlaceRequest request) {
-        String id = request.getParameter("id", "0");
+        String id = request.getParameter(ParameterTokens.ID, "0");
         recupAnnonce(Integer.valueOf(id));
     }
 

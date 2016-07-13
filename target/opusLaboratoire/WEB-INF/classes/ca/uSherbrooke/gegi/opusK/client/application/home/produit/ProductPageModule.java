@@ -12,3 +12,4 @@ public class ProductPageModule extends AbstractPresenterModule {
         bindPresenter(ProductPagePresenter.class, ProductPagePresenter.MyView.class, ProductPageView.class, ProductPagePresenter.MyProxy.class);
     }
 }
+

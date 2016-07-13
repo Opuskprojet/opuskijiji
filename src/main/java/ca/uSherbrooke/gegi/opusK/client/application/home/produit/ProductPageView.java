@@ -6,6 +6,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.*;
 import com.gwtplatform.mvp.client.ViewImpl;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
+import org.gwtbootstrap3.client.ui.html.Text;
 
 import javax.inject.Inject;
 
@@ -16,7 +17,7 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
 
 
     @UiField
-    HTMLPanel myPanel;
+    HTMLPanel detailAnnonce;
 
     interface Binder extends UiBinder<Widget, ProductPageView> {
     }
@@ -30,10 +31,10 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
     @Override
     public void displayProductPage(Annonces_opusk annonces_opusk) {
 
-        myPanel.clear();
-
-        Label test = new Label();
-        test.setText(annonces_opusk.getTitre());
+        detailAnnonce.clear();
+        Label titre = new Label();
+        titre.setText(annonces_opusk.getTitre());
+        titre.setStyleName("col-lg-offset-5");
 
         Label prix = new Label();
         prix.setText(String.valueOf(annonces_opusk.getPrix()));
@@ -41,11 +42,9 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
         /*Switch (annonce.getCategorie())
             case "Immobilier"
                 Label nbPiece
-
-
          */
 
-        myPanel.add(test);
-        myPanel.add(prix);
+        detailAnnonce.add(titre);
+        detailAnnonce.add(prix);
     }
 }
