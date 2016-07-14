@@ -27,8 +27,8 @@
                         <b:FormLabel for="formType" addStyleNames="col-lg-4">Type d'annonce</b:FormLabel>
                         <g:FlowPanel addStyleNames="col-lg-5">
                             <b:ListBox ui:field="listType">
-                                <item>Vente</item>
                                 <item>Don</item>
+                                <item>Vente</item>
                                 <item>Location</item>
                             </b:ListBox>
                         </g:FlowPanel>

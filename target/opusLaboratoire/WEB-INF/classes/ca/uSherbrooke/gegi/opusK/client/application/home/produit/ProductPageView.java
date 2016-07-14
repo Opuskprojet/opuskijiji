@@ -1,6 +1,5 @@
 package ca.uSherbrooke.gegi.opusK.client.application.home.produit;
 
-import ca.uSherbrooke.gegi.opusK.client.application.home.consultAnnonce.ConsultPageView;
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
@@ -12,8 +11,6 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
-import org.apache.xpath.operations.Bool;
-import org.gwtbootstrap3.client.ui.html.Text;
 
 import javax.inject.Inject;
 
@@ -22,6 +19,12 @@ import javax.inject.Inject;
  */
 public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> implements ProductPagePresenter.MyView {
 
+    interface Resources extends ClientBundle {
+        @Source("no-image.png")
+        ImageResource getDefaultPhoto();
+
+        ProductPageView.Resources INSTANCE = GWT.create(ProductPageView.Resources.class);
+    }
 
     @UiField
     HTMLPanel detailAnnonce;
@@ -120,9 +123,8 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
         detailAnnonce.add(dateExpiration);
 
         Image image = new Image();
-        image.setUrl("http://www.msnoverseas.com/Images/no-image-available.png");
-        image.addStyleName("col-lg-offset-3");
-        image.setHeight("200px");
+        image.setResource(Resources.INSTANCE.getDefaultPhoto());
+       
         detailAnnonce.add(image);
 
     }

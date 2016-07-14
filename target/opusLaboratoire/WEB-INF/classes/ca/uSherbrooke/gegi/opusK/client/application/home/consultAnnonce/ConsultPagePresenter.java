@@ -8,6 +8,7 @@ import ca.uSherbrooke.gegi.opusK.shared.dispatch.SearchResult;
 import ca.uSherbrooke.gegi.opusK.shared.dispatch.StatusChangeAction;
 import ca.uSherbrooke.gegi.opusK.shared.dispatch.StatusChangeResult;
 import ca.uSherbrooke.gegi.opusK.shared.entity.Annonces_opusk;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
@@ -113,6 +114,11 @@ public class ConsultPagePresenter extends Presenter<ConsultPagePresenter.MyView,
             @Override
             public void onSuccess(StatusChangeResult searchResult) {
                 Notify.notify(searchResult.getResponse(), NotifyType.SUCCESS);
+                PlaceRequest placeRequest = new PlaceRequest.Builder()
+                        .nameToken(NameTokens.getVosAnnonces())
+                        .build();
+                placeManager.revealPlace(placeRequest);
+
             }
         });
     }

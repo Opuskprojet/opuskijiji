@@ -63,7 +63,7 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     FormGroup dynamicForm; //lien pour le formulaire
 
     @UiField
-    FormGroup dynamicFormPrix;
+    FormGroup dynamicFormPrix; // pour ne pas afficher le prix quand c'est un don
 
 
     @UiHandler("listCat")
@@ -205,6 +205,7 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
         dynamicFormPrix.clear();
 
         switch (type_annonce) {
+            case "Location":
             case "Vente":
                 FormLabel labelprix1 = new FormLabel();
                 labelprix1.setText("Prix");
@@ -216,27 +217,8 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
                 textprix.setPlaceholder("00,00 $CAD");
                 flowprix1.add(textprix);
 
-
                 dynamicFormPrix.add(labelprix1);
                 dynamicFormPrix.add(flowprix1);
-                break;
-
-            case "Location":
-
-                FormLabel labelprix2 = new FormLabel();
-                labelprix2.setText("Prix");
-                labelprix2.addStyleName("col-lg-4");
-
-                FlowPanel flowprix2 = new FlowPanel();
-                flowprix2.addStyleName("col-lg-5");
-
-                textprix.setPlaceholder("00,00 $CAD");
-                flowprix2.add(textprix);
-
-
-                dynamicFormPrix.add(labelprix2);
-                dynamicFormPrix.add(flowprix2);
-
                 break;
 
             default:
