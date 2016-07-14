@@ -65,12 +65,13 @@
                             <b:TextArea ui:field="description"/>
                         </g:FlowPanel>
                     </b:FormGroup>
-                    <b:FormGroup>
-                        <b:FormLabel for="formName" addStyleNames="col-lg-4">Prix</b:FormLabel>
-                        <g:FlowPanel addStyleNames="col-lg-2">
-                            <b:DoubleBox ui:field="prix" placeholder="10,00 $CAD" />
-                        </g:FlowPanel>
+
+
+                    <b:FormGroup ui:field="dynamicFormPrix">
+
                     </b:FormGroup>
+
+
 
                     <b:FormGroup>
                         <b:FormLabel for="formName" addStyleNames="col-lg-4">Photos :</b:FormLabel>
