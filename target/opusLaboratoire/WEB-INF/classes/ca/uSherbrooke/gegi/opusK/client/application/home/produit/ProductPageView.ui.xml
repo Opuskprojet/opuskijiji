@@ -3,7 +3,33 @@
              xmlns:b="urn:import:org.gwtbootstrap3.client.ui"
              xmlns:g="urn:import:com.google.gwt.user.client.ui">
 
-    <g:HTMLPanel ui:field="myPanel">
+    <g:HTMLPanel>
+        <style>
+            .bloc{
+            margin: auto;
+            margin-top:50px;
+            padding-top : 20px;
+            padding-bottom : 20px;
+            background-color: #daf2e6;
+            width :700px;
+            border-radius: 5px;
+            font-size: 125%;
 
+            }
+            .header{
+            margin-top: 40px;
+            margin-bottom: 50px;
+            }
+        </style>
+        <div class="header">
+            <b:Heading size="H1" text="Détail de l'annonce" addStyleNames="col-lg-offset-5"/>
+        </div>
+
+        <div class="bloc">
+        <g:HTMLPanel ui:field="detailAnnonce" addStyleNames="col-lg-offset-1" >
+
+        </g:HTMLPanel>
+        </div>
     </g:HTMLPanel>
+
 </ui:UiBinder>

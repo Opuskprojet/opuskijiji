@@ -12,7 +12,7 @@
 
         <header>
             <div>
-                <b:Heading size="H1" text="Déposer une annonce" addStyleNames="col-lg-offset-5"/>
+                <b:Heading size="H1" text="Messagerie" addStyleNames="col-lg-offset-5"/>
             </div>
         </header>
 
