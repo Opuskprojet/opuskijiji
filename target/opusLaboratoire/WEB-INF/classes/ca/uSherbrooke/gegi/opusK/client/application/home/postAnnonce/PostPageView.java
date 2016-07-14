@@ -239,9 +239,6 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
 
                 break;
 
-            case "Don":
-                break;
-
             default:
                 break;
         }
