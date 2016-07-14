@@ -37,6 +37,7 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     private TextBox textinfo = new TextBox();
     private TextBox textmulti = new TextBox();
     private TextBox textmaison = new TextBox();
+    private DoubleBox textprix = new DoubleBox();
     private IntegerBox piece = new IntegerBox();
     private TextBox isbn = new TextBox();
     private TextBox etat = new TextBox();
@@ -59,10 +60,10 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     TextArea description;
 
     @UiField
-    DoubleBox prix;
+    FormGroup dynamicForm; //lien pour le formulaire
 
     @UiField
-    FormGroup dynamicForm; //lien pour le formulaire
+    FormGroup dynamicFormPrix; // pour ne pas afficher le prix quand c'est un don
 
 
     @UiHandler("listCat")
@@ -196,6 +197,53 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
     }
 
 
+
+    @UiHandler("listType")
+    void onSelectTypeAnnonce(ChangeEvent event){
+
+        String type_annonce = listType.getSelectedItemText();
+        dynamicFormPrix.clear();
+
+        switch (type_annonce) {
+            case "Vente":
+                FormLabel labelprix1 = new FormLabel();
+                labelprix1.setText("Prix");
+                labelprix1.addStyleName("col-lg-4");
+
+                FlowPanel flowprix1 = new FlowPanel();
+                flowprix1.addStyleName("col-lg-5");
+
+                textprix.setPlaceholder("00,00 $CAD");
+                flowprix1.add(textprix);
+
+
+                dynamicFormPrix.add(labelprix1);
+                dynamicFormPrix.add(flowprix1);
+                break;
+
+            case "Location":
+
+                FormLabel labelprix2 = new FormLabel();
+                labelprix2.setText("Prix");
+                labelprix2.addStyleName("col-lg-4");
+
+                FlowPanel flowprix2 = new FlowPanel();
+                flowprix2.addStyleName("col-lg-5");
+
+                textprix.setPlaceholder("00,00 $CAD");
+                flowprix2.add(textprix);
+
+
+                dynamicFormPrix.add(labelprix2);
+                dynamicFormPrix.add(flowprix2);
+
+                break;
+
+            default:
+                break;
+        }
+
+    }
     @UiHandler("submitButton")
     void onSend(ClickEvent event) {
 
@@ -205,12 +253,12 @@ public class PostPageView extends ViewWithUiHandlers<PostPagePresenter> implemen
          * etat maison / piece / surface / jardin / etat livre / isbn / auteur;
          */
         surface.setValue(setDefaultDouble(surface.getValue()));
-        prix.setValue(setDefaultDouble(prix.getValue()));
+        textprix.setValue(setDefaultDouble(textprix.getValue()));
         piece.setValue(setDefaultInt(piece.getValue()));
 
         List<String> datas = Arrays.asList(listType.getSelectedItemText(),
                 listCat.getSelectedItemText(),titreAnnonce.getText(),description.getText()
-                , String.valueOf(prix.getValue()), textinfo.getText(),textmulti.getText(),textmaison.getText()
+                , String.valueOf(textprix.getValue()), textinfo.getText(),textmulti.getText(),textmaison.getText()
                 ,String.valueOf(piece.getValue()), String.valueOf(surface.getValue()),Boolean.toString(checkjardin.getValue()), etat.getText(),
                 isbn.getText(),auteur.getText());
 
