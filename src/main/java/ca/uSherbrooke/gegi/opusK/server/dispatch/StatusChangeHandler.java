@@ -30,10 +30,10 @@ public class StatusChangeHandler implements ActionHandler<StatusChangeAction,Sta
 
         if(annonce != null)
         {
-            em.merge(annonce);
+            em.getTransaction().begin();
             annonce.setStatut(!annonce.getStatut());
-
-
+            em.merge(annonce);
+            em.getTransaction().commit();
             em.close();
             emf.close();
             return new StatusChangeResult("Statut de l'annonce changé !");
