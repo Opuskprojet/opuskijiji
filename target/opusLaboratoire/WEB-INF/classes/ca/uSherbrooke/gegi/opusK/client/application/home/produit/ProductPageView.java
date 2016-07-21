@@ -43,13 +43,24 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
         String categorie = annonces_opusk.getCategorie();
         detailAnnonce.clear();
 
+        Label titreLab = new Label();
+        titreLab.setText("Titre : ");
+        titreLab.addStyleName("col-lg-3");
+        detailAnnonce.add(titreLab);
+
         Label titre = new Label();
-        titre.setText("Titre : " + annonces_opusk.getTitre());
-        //titre.setStyleName("");
+        titre.setText(annonces_opusk.getTitre());
+        titre.addStyleName("col-lg-7");
         detailAnnonce.add(titre);
 
+        Label categorieItemLab = new Label();
+        categorieItemLab.setText("Catégorie : ");
+        categorieItemLab.addStyleName("col-lg-3");
+        detailAnnonce.add(categorieItemLab);
+
         Label categorieItem = new Label();
-        categorieItem.setText("Catégorie : " + annonces_opusk.getCategorie());
+        categorieItem.setText(annonces_opusk.getCategorie());
+        categorieItem.addStyleName("col-lg-7");
         detailAnnonce.add(categorieItem);
 
         Label description = new Label();
@@ -123,8 +134,10 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
         detailAnnonce.add(dateExpiration);
 
         Image image = new Image();
+        image.addStyleName("col-lg-offset-3");
+
         image.setResource(Resources.INSTANCE.getDefaultPhoto());
-       
+
         detailAnnonce.add(image);
 
     }

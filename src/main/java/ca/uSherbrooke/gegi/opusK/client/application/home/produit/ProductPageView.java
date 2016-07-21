@@ -40,16 +40,23 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
     @Override
     public void displayProductPage(Annonces_opusk annonces_opusk) {
 
+        String  smallCol = "col-lg-3";
+        String largeCol = "col-lg-9";
         String categorie = annonces_opusk.getCategorie();
         detailAnnonce.clear();
 
-        Label titre = new Label();
-        titre.setText("Titre : " + annonces_opusk.getTitre());
-        //titre.setStyleName("");
-        detailAnnonce.add(titre);
+        detailAnnonce.add(createLab("Titre : ", smallCol));
+
+        detailAnnonce.add(createLab(annonces_opusk.getTitre(),largeCol));
+
+        Label categorieItemLab = new Label();
+        categorieItemLab.setText("Catégorie : ");
+        categorieItemLab.addStyleName("col-lg-3");
+        detailAnnonce.add(categorieItemLab);
 
         Label categorieItem = new Label();
-        categorieItem.setText("Catégorie : " + annonces_opusk.getCategorie());
+        categorieItem.setText(annonces_opusk.getCategorie());
+        categorieItem.addStyleName("col-lg-8");
         detailAnnonce.add(categorieItem);
 
         Label description = new Label();
@@ -58,8 +65,15 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
 
         switch (categorie) {
             case "informatique":
+
+                Label marqueLab = new Label();
+                marqueLab.setText("Marque : ");
+                marqueLab.addStyleName("col-lg-3");
+                detailAnnonce.add(marqueLab);
+
                 Label marque = new Label();
-                marque.setText("Marque : " + annonces_opusk.getMarque());
+                marque.setText(annonces_opusk.getMarque());
+                marque.addStyleName("col-lg-8");
                 detailAnnonce.add(marque);
                 break;
 
@@ -129,5 +143,12 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
 
         detailAnnonce.add(image);
 
+    }
+
+    private Label createLab (String name ,String style )
+    {
+        Label lab = new Label(name);
+        lab.addStyleName(style);
+        return lab;
     }
 }
