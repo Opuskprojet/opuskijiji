@@ -6,10 +6,7 @@ import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
 import javax.inject.Inject;
@@ -40,105 +37,90 @@ public class ProductPageView extends ViewWithUiHandlers<ProductPagePresenter> im
     @Override
     public void displayProductPage(Annonces_opusk annonces_opusk) {
 
+        String  smallCol = "col-lg-4";
+        String largeCol = "col-lg-8";
         String categorie = annonces_opusk.getCategorie();
         detailAnnonce.clear();
 
-        Label titreLab = new Label();
-        titreLab.setText("Titre : ");
-        titreLab.addStyleName("col-lg-3");
-        detailAnnonce.add(titreLab);
+        detailAnnonce.add(createLab("Titre : ", smallCol));
+        detailAnnonce.add(createLab(annonces_opusk.getTitre(),largeCol));
 
-        Label titre = new Label();
-        titre.setText(annonces_opusk.getTitre());
-        titre.addStyleName("col-lg-7");
-        detailAnnonce.add(titre);
+        detailAnnonce.add(createLab("Catégorie : ", smallCol));
+        detailAnnonce.add(createLab(annonces_opusk.getCategorie(),largeCol));
 
-        Label categorieItemLab = new Label();
-        categorieItemLab.setText("Catégorie : ");
-        categorieItemLab.addStyleName("col-lg-3");
-        detailAnnonce.add(categorieItemLab);
-
-        Label categorieItem = new Label();
-        categorieItem.setText(annonces_opusk.getCategorie());
-        categorieItem.addStyleName("col-lg-7");
-        detailAnnonce.add(categorieItem);
-
-        Label description = new Label();
-        description.setText("Description : " + annonces_opusk.getDescription());
+        detailAnnonce.add(createLab("Description : ", smallCol));
+        TextArea description = new TextArea();
+        description.setReadOnly(true);
+        description.setText(annonces_opusk.getDescription());
         detailAnnonce.add(description);
 
         switch (categorie) {
             case "informatique":
-                Label marque = new Label();
-                marque.setText("Marque : " + annonces_opusk.getMarque());
-                detailAnnonce.add(marque);
+                detailAnnonce.add(createLab("Marque : ", smallCol));
+                detailAnnonce.add(createLab(annonces_opusk.getMarque(),largeCol));
                 break;
 
             case "multimedia":
-                Label etatMultimedia = new Label();
-                etatMultimedia.setText("Etat : " + annonces_opusk.getEtat1());
-                detailAnnonce.add(etatMultimedia);
+                detailAnnonce.add(createLab("Etat : ", smallCol));
+                detailAnnonce.add(createLab(annonces_opusk.getEtat1(),largeCol));
                 break;
 
             case "Articles de maison":
-                Label etatMaison = new Label();
-                etatMaison.setText("Etat : " + annonces_opusk.getEtat3());
-                detailAnnonce.add(etatMaison);
+                detailAnnonce.add(createLab("Etat : ", smallCol));
+                detailAnnonce.add(createLab(annonces_opusk.getEtat3(),largeCol));
                 break;
 
             case "immobilier":
-                Label surface = new Label();
-                surface.setText(String.valueOf("Surface : " + annonces_opusk.getSurface()));
-                detailAnnonce.add(surface);
-                Label jardin = new Label();
-                boolean presenceJardin = annonces_opusk.getJardin();
-                String texteJardin ="";
-                if (presenceJardin = true){
+                detailAnnonce.add(createLab("Surface : ", smallCol));
+                detailAnnonce.add(createLab(String.valueOf(annonces_opusk.getSurface()),largeCol));
+
+                String texteJardin;
+                if (annonces_opusk.getJardin())
                     texteJardin = "Avec un jardin";
-                }
-                else {
+                else
                     texteJardin = "Sans jardin";
-                }
-                jardin.setText(String.valueOf(texteJardin));
-                detailAnnonce.add(jardin);
-                Label pieces = new Label();
-                pieces.setText(String.valueOf("Nombre de pièces : " + annonces_opusk.getPieces()));
-                detailAnnonce.add(pieces);
+
+                detailAnnonce.add(createLab("Jardin : ", smallCol));
+                detailAnnonce.add(createLab(texteJardin, largeCol));
+
+                detailAnnonce.add(createLab("Nombre de pièces : ", smallCol));
+                detailAnnonce.add(createLab(String.valueOf(annonces_opusk.getPieces()), largeCol));
                 break;
 
             case "livres":
-                Label etatLivre = new Label();
-                etatLivre.setText("Etat : " + annonces_opusk.getEtat2());
-                detailAnnonce.add(etatLivre);
-                Label auteur = new Label();
-                auteur.setText("Auteur : " + annonces_opusk.getAuteur());
-                detailAnnonce.add(auteur);
-                Label isbn = new Label();
-                isbn.setText(String.valueOf("ISBN : " + annonces_opusk.getIsbn()));
-                detailAnnonce.add(isbn);
+                detailAnnonce.add(createLab("Etat : ", smallCol));
+                detailAnnonce.add(createLab(annonces_opusk.getEtat2(), largeCol));
+
+                detailAnnonce.add(createLab("Auteur : ", smallCol));
+                detailAnnonce.add(createLab(annonces_opusk.getAuteur(), largeCol));
+
+                detailAnnonce.add(createLab("ISBN : ", smallCol));
+                detailAnnonce.add(createLab(annonces_opusk.getIsbn(), largeCol));
                 break;
 
         }
 
+        detailAnnonce.add(createLab("Prix : ", smallCol));
+        detailAnnonce.add(createLab(annonces_opusk.getPrix() + " $", largeCol));
 
-        Label prix = new Label();
-        prix.setText(String.valueOf("Prix : " + annonces_opusk.getPrix()+ " $"));
-        detailAnnonce.add(prix);
+        detailAnnonce.add(createLab("Auteur : ", smallCol));
+        detailAnnonce.add(createLab(annonces_opusk.getCip(), largeCol));
 
-        Label cip = new Label();
-        cip.setText("Auteur : " + annonces_opusk.getCip());
-        detailAnnonce.add(cip);
-
-        Label dateExpiration = new Label();
-        dateExpiration.setText("Date d'expiration de l'annonce : " + String.valueOf(annonces_opusk.getDate_Expiration()));
-        detailAnnonce.add(dateExpiration);
+        detailAnnonce.add(createLab("Date d'expiration de l'annonce : ", smallCol));
+        detailAnnonce.add(createLab(String.valueOf(annonces_opusk.getDate_Expiration()), largeCol));
 
         Image image = new Image();
         image.addStyleName("col-lg-offset-3");
-
         image.setResource(Resources.INSTANCE.getDefaultPhoto());
-
         detailAnnonce.add(image);
 
+
+    }
+
+    private Label createLab (String name ,String style )
+    {
+        Label lab = new Label(name);
+        lab.addStyleName(style);
+        return lab;
     }
 }
